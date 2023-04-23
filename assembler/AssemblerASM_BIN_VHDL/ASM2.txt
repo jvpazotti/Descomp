@@ -109,6 +109,8 @@ STA @510 #Se for diferente de 0, Limpa a leitura de KEY1
 LDA @320 #Le o valor das chaves SW(7~0)
 STA @13 #Armazena o valor das chaves no limite das dezenas de milhar
 ESPERACENTENAMILHAR:
+LDA @6 #Carrega 0 no acumulador
+STA @256 # Zera o valor nos LEDS(7~0)
 LDI $1 # Carrega o valor 1 no acumulador
 STA @257 # Bota o valor nos LEDS
 LDA @320 #Le o valor das chaves SW(7~0)
@@ -243,6 +245,8 @@ STA @15 #Ativa a flag de parar contagem
 STA @258 #Ativa o LED de limite atingido 
 RET #Retorna pro LOOP principal
 TRAVA: #Trava a contagem
+LDI $1
+STA @256
 LDA @356 #Le o valor do botao FPGA
 CEQ @6 #Compara com 0 o botao FPGA
 JEQ @TRAVA #Se for igual, continua travado
