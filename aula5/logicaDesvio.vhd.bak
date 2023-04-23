@@ -1,0 +1,28 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity logica_desvio is
+	port (
+		FLAG_EQ : in std_logic;
+		JEQ : in std_logic;
+		JSR: in std_logic;
+		RET: in std_logic;
+		JMP: in std_logic;
+		Sel_MUX_PC: out std_logic_vector (1 downto 0)
+	);
+end entity;
+
+architecture comportamento of logica_desvio is
+   signal soma :      STD_LOGIC_VECTOR((larguraDados-1) downto 0);
+   signal subtracao : STD_LOGIC_VECTOR((larguraDados-1) downto 0);
+	signal pass : STD_LOGIC_VECTOR((larguraDados-1) downto 0);
+    begin
+      soma      <= STD_LOGIC_VECTOR(unsigned(entradaA) + unsigned(entradaB));
+      subtracao <= STD_LOGIC_VECTOR(unsigned(entradaA) - unsigned(entradaB));
+		pass <= STD_LOGIC_VECTOR(unsigned(entradaB));
+      saida <= soma when (seletor = "01") else 
+					subtracao when (seletor="00") else
+					pass when (seletor="10") else
+					entradaB;
+		flag_equal <= '1' when (subtracao=x"00") else '0';
+end architecture;

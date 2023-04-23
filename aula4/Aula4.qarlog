@@ -1,0 +1,26 @@
+Quartus Prime Archive log --	/home/jvpazotti/Desktop/Descomp/aulas/aula4/Aula4.qarlog
+
+Archive:	/home/jvpazotti/Desktop/Descomp/aulas/aula4/Aula4.qar
+Date:		Sun Mar 12 15:10:12 2023
+Quartus Prime		20.1.0 Build 711 06/05/2020 SJ Lite Edition
+
+	=========== Files Selected: ===========
+/home/jvpazotti/Desktop/Descomp/aulas/aula4/Aula4.qpf
+/home/jvpazotti/Desktop/Descomp/aulas/aula4/Aula4.qsf
+/home/jvpazotti/Desktop/Descomp/aulas/aula4/Aula4.vhd
+/home/jvpazotti/Desktop/Descomp/aulas/aula4/ULASomaSub.vhd
+/home/jvpazotti/Desktop/Descomp/aulas/aula4/Waveform.vwf
+/home/jvpazotti/Desktop/Descomp/aulas/aula4/Waveform1.vwf
+/home/jvpazotti/Desktop/Descomp/aulas/aula4/Waveform2.vwf
+/home/jvpazotti/Desktop/Descomp/aulas/aula4/decoderInstru.vhd
+/home/jvpazotti/Desktop/Descomp/aulas/aula4/edgeDetector.vhd
+/home/jvpazotti/Desktop/Descomp/aulas/aula4/memoriaRAM.vhd
+/home/jvpazotti/Desktop/Descomp/aulas/aula4/memoriaROM.vhd
+/home/jvpazotti/Desktop/Descomp/aulas/aula4/muxGenerico2x1.vhd
+/home/jvpazotti/Desktop/Descomp/aulas/aula4/registradorGenerico.vhd
+/home/jvpazotti/Desktop/Descomp/aulas/aula4/somaConstante.vhd
+/home/jvpazotti/intelFPGA_lite/20.1/quartus/linux64/assignment_defaults.qdf
+	======= Total: 15 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.
