@@ -239,7 +239,7 @@ display_5 :  entity work.conversorHex7Seg
                  saida7seg => HEX5);					  
 					  
 TST_8_chaves: entity work.buffer_3_state_8portas
-        port map(entrada => SW(7 downto 0),
+        port map(entrada => "0000" & SW(3 downto 0),
 		  habilita =>  (rd and saida_decoder(5) and saida_decoder_2(0) and (not data_address(5))) , 
 		  saida => dadoLido_DadoIN);
 		

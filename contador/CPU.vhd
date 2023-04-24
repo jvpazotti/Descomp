@@ -40,14 +40,15 @@ architecture arquitetura of CPU is
   signal Reset_A : std_logic;
   signal Operacao_ULA : std_logic_vector(1 downto 0);
   signal Comando_Opcode : std_logic_vector (3 downto 0);
-  signal Saida_Decodificador : std_logic_vector (11 downto 0);
+  signal Saida_Decodificador : std_logic_vector (13 downto 0);
   signal Instrucao : std_logic_vector (12 downto 0);
   signal habFlag : std_logic;
   signal saida_hab_flag : std_logic;
   signal saida_logica_desvio : std_logic_vector(1 downto 0);
   signal saida_reg_retorno : std_logic_vector(8 downto 0);
   signal saida_mux_4x1 : std_logic_vector(8 downto 0);
-  
+  signal habJGT : std_logic;
+  signal saida_hab_jgt : std_logic;
 begin
 
 -- Instanciando os componentes:
@@ -104,7 +105,8 @@ ULA1 : entity work.ULASomaSub  generic map(larguraDados => larguraDados)
 			 entradaB => MUX_Saida, 
 			 saida => Saida_ULA, 
 			 seletor => Saida_Decodificador(4 downto 3),
-			 flag_equal => habFlag);
+			 flag_equal => habFlag,
+			 flag_jgt => habJGT);
 
 			 
 Decodificador : entity work.decoderInstru
@@ -117,11 +119,20 @@ HAB_FLAG: entity work.flipflopGenerico
 									DOUT=>saida_hab_flag,
 									ENABLE=>Saida_Decodificador(2),
 									CLK => CLK,
-									RST => '0');			
+									RST => '0');	
+							
+HAB_JGT: entity work.flipflopGenerico
+						port map(DIN=>habJGT,
+									DOUT=>saida_hab_jgt,
+									ENABLE=>Saida_Decodificador(12),
+									CLK => CLK,
+									RST => '0');		
 									
 
 Logica_Desvio : entity work.logicaDesvio 
 							port map(FLAG_EQ=>saida_hab_flag,
+										FLAG_GT=>saida_hab_jgt,
+										JGT=>Saida_Decodificador(13),
 										JEQ=>Saida_Decodificador(7),
 										JSR=>Saida_Decodificador(8),
 										RET=>Saida_Decodificador(9),

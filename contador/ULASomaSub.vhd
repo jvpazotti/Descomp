@@ -8,7 +8,8 @@ entity ULASomaSub is
       entradaA, entradaB:  in STD_LOGIC_VECTOR((larguraDados-1) downto 0);
       seletor:  in STD_LOGIC_VECTOR(1 downto 0);
       saida:    out STD_LOGIC_VECTOR((larguraDados-1) downto 0);
-		flag_equal: out std_logic
+		flag_equal: out std_logic;
+		flag_jgt: out std_logic
     );
 end entity;
 
@@ -25,4 +26,5 @@ architecture comportamento of ULASomaSub is
 					pass when (seletor="10") else
 					entradaB;
 		flag_equal <= '1' when (subtracao=x"00") else '0';
+		flag_jgt <= '1' when (entradaA>entradaB) else '0';
 end architecture;
