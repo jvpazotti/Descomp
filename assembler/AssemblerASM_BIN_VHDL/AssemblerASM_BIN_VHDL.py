@@ -93,6 +93,8 @@ mne =	{
        "CEQ":   "8",
        "JSR":   "9",
        "RET":   "A",
+       "GT":    "B",
+       "JGT":   "C"
 }
 
 #Converte o valor após o caractere arroba '@'
@@ -127,8 +129,16 @@ def  converteArroba9bits(line):
             line[1] = hex(int(line[1]))[2:].upper().zfill(2)
             line[1] = "\" & '0' & x\"" + line[1]
     else:
-        line[1] = hex(int(dic_label[line[1]]))[2:].upper().zfill(2)
-        line[1] = "\" & '0' & x\"" + line[1]
+        if(int(dic_label[line[1]]) > 255):
+            print(dic_label[line[1]])
+            line[1] = str(int(dic_label[line[1]]) - 256)
+            line[1] = hex(int(line[1]))[2:].upper().zfill(2)
+            line[1] = "\" & '1' & x\"" + line[1]
+        else:
+            line[1] = hex(int(dic_label[line[1]]))[2:].upper().zfill(2)
+            line[1] = "\" & '0' & x\"" + line[1]
+        # line[1] = hex(int(dic_label[line[1]]))[2:].upper().zfill(2)
+        # line[1] = "\" & '0' & x\"" + line[1]
     line = ''.join(line)
     return line
  
@@ -267,7 +277,10 @@ with open(outputBIN, "w+") as f:  #Abre o destino BIN
                     instrucaoLine=inst+instrucaoLine[2:]
                     # instrucaoLine[0]=inst
 
-            print(instrucaoLine)
+            if "JGTQ" in instrucaoLine:
+                instrucaoLine=instrucaoLine.replace("JGTQ","CEQ")
+                
+            
 
             #print(dic_label)
 

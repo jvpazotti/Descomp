@@ -31,12 +31,34 @@ STA @11
 STA @12
 STA @13
 STA @14
+LDI $11
+STA @16   #Constante de limite de contagem (11)
+LDI $12
+STA @17   #Constante de limite de contagem (12)
+LDI $13
+STA @18   #Constante de limite de contagem (13)
+LDI $14
+STA @19   #Constante de limite de contagem (14)
+LDI $15 
+STA @20   #Constante de limite de contagem (15)
+LDI $0
+STA @21   #Constante de limite de contagem (0)
+
 INICIOLOOP: #Loop principal
 LDA @353 # Le o valor de KEY1
 CEQ @6 # Compara o valor de KEY1 com 0
 JEQ @INICIOLOOP # Se for igual a 0, fica no aguardo para quando for 1
 JSR @CONFIGLIMITE # Se for diferente de 0, entra na sub rotina de configuracao de Limite
-JSR @ZERADISPLAY # Zera os displays depois de configurar os limites
+LDA @6 #Carrega 0 no acumulador
+STA @288 # Zera o HEX1
+STA @289 # Zera o HEX2
+STA @290 # Zera o HEX3
+STA @291 # Zera o HEX4
+STA @292 # Zera o HEX5
+STA @293 # Zera o HEX6
+STA @256 # Zera os LEDS(7~0)
+STA @258 # Zera os LED(9)
+STA @257 # Zera os LED(8) # Zera os displays depois de configurar os limites
 INCREMENTADOR: # Incrementa ate chegar no limite de contagem
 LDA @352 # Le o valor de KEY0
 CEQ @6   # Compara o valor de KEY0 com 0
@@ -49,14 +71,25 @@ LDA @15 # Le o valor da flag de inibir contagem
 CEQ @6 # Compara com 0 a flag (flag com valor 1 -> ativa, flag com valor 0 -> desativada)
 JEQ @INCREMENTADOR #Se a flag for 0, pode continuar incrementando
 JMP @TRAVA # Se for 1, trava a contagem
-FIMLOOP:  #Fim do Loop
-JMP @INICIOLOOP #Volta para o inicio do LOOP
 CONFIGLIMITE: #Rotina de configuracao de limite
 LDI $1 # Carrega o valor 1
 STA @256 # Bota no endereco dos LEDS(7-0)
 STA @510 #Limpa a leitura de KEY1
 ESPERAUNIDADE:
 LDA @320 #Le o valor das chaves SW(7~0)
+CEQ @8 #Compara com 10
+JEQ @DISPLAYATUALIZADO0
+CEQ @16 #Compara com 11
+JEQ @DISPLAYATUALIZADO0
+CEQ @17 #Compara com 12
+JEQ @DISPLAYATUALIZADO0
+CEQ @18 #Compara com 13
+JEQ @DISPLAYATUALIZADO0
+CEQ @19 #Compara com 14
+JEQ @DISPLAYATUALIZADO0
+CEQ @20 #Compara com 15
+JEQ @DISPLAYATUALIZADO0
+TESTE:
 STA @288 # Hex 0
 LDA @353 # Le KEY1
 CEQ @6 #Compara KEY1 com 0
@@ -68,6 +101,19 @@ ESPERADEZENA:
 LDI $4 #Carrega o valor 4
 STA @256 # Bota o valor nos LEDS
 LDA @320 #Le o valor das chaves SW(7~0)
+CEQ @8 #Compara com 10
+JEQ @DISPLAYATUALIZADO1
+CEQ @16 #Compara com 11
+JEQ @DISPLAYATUALIZADO1
+CEQ @17 #Compara com 12
+JEQ @DISPLAYATUALIZADO1
+CEQ @18 #Compara com 13
+JEQ @DISPLAYATUALIZADO1
+CEQ @19 #Compara com 14
+JEQ @DISPLAYATUALIZADO1
+CEQ @20 #Compara com 15
+JEQ @DISPLAYATUALIZADO1
+TESTE2:
 STA @289 # Hex 1
 LDA @353 #Le o valor de KEY1 novamente
 CEQ @6 #Compara com 0 o valor de KEY1 
@@ -79,6 +125,19 @@ ESPERACENTENA:
 LDI $16 # Carrega o valor 16 no acumulador
 STA @256 # Bota o valor nos LEDS
 LDA @320 #Le o valor das chaves SW(7~0)
+CEQ @8 #Compara com 10
+JEQ @DISPLAYATUALIZADO2
+CEQ @16 #Compara com 11
+JEQ @DISPLAYATUALIZADO2
+CEQ @17 #Compara com 12
+JEQ @DISPLAYATUALIZADO2
+CEQ @18 #Compara com 13
+JEQ @DISPLAYATUALIZADO2
+CEQ @19 #Compara com 14
+JEQ @DISPLAYATUALIZADO2
+CEQ @20 #Compara com 15
+JEQ @DISPLAYATUALIZADO2
+TESTE3:
 STA @290 # Hex 2
 LDA @353 #Le o valor de KEY1 novamente
 CEQ @6 #Compara com 0 o valor de KEY1 
@@ -90,6 +149,19 @@ ESPERAUNIDADEMILHAR:
 LDI $32 # Carrega o valor 32 no acumulador
 STA @256 # Bota o valor nos LEDS
 LDA @320 #Le o valor das chaves SW(7~0)
+CEQ @8 #Compara com 10
+JEQ @DISPLAYATUALIZADO3
+CEQ @16 #Compara com 11
+JEQ @DISPLAYATUALIZADO3
+CEQ @17 #Compara com 12
+JEQ @DISPLAYATUALIZADO3
+CEQ @18 #Compara com 13
+JEQ @DISPLAYATUALIZADO3
+CEQ @19 #Compara com 14
+JEQ @DISPLAYATUALIZADO3
+CEQ @20 #Compara com 15
+JEQ @DISPLAYATUALIZADO3
+TESTE4:
 STA @291 # Hex 3
 LDA @353 #Le o valor de KEY1 novamente
 CEQ @6 #Compara com 0 o valor de KEY1
@@ -101,6 +173,19 @@ ESPERADEZENAMILHAR:
 LDI $128 # Carrega o valor 128 no acumulador
 STA @256 # Bota o valor nos LEDS
 LDA @320 #Le o valor das chaves SW(7~0)
+CEQ @8 #Compara com 10
+JEQ @DISPLAYATUALIZADO4
+CEQ @16 #Compara com 11
+JEQ @DISPLAYATUALIZADO4
+CEQ @17 #Compara com 12
+JEQ @DISPLAYATUALIZADO4
+CEQ @18 #Compara com 13
+JEQ @DISPLAYATUALIZADO4
+CEQ @19 #Compara com 14
+JEQ @DISPLAYATUALIZADO4
+CEQ @20 #Compara com 15
+JEQ @DISPLAYATUALIZADO4
+TESTE5:
 STA @292 # Hex 4
 LDA @353 #Le o valor de KEY1 novamente
 CEQ @6 #Compara com 0 o valor de KEY1 
@@ -114,6 +199,19 @@ STA @256 # Zera o valor nos LEDS(7~0)
 LDI $1 # Carrega o valor 1 no acumulador
 STA @257 # Bota o valor nos LEDS
 LDA @320 #Le o valor das chaves SW(7~0)
+CEQ @8 #Compara com 10
+JEQ @DISPLAYATUALIZADO5
+CEQ @16 #Compara com 11
+JEQ @DISPLAYATUALIZADO5
+CEQ @17 #Compara com 12
+JEQ @DISPLAYATUALIZADO5
+CEQ @18 #Compara com 13
+JEQ @DISPLAYATUALIZADO5
+CEQ @19 #Compara com 14
+JEQ @DISPLAYATUALIZADO5
+CEQ @20 #Compara com 15
+JEQ @DISPLAYATUALIZADO5
+TESTE6:
 STA @293 # Hex 5
 LDA @353 #Le o valor de KEY1 novamente
 CEQ @6 #Compara com 0 o valor de KEY1
@@ -121,18 +219,6 @@ JEQ @ESPERACENTENAMILHAR #Se for igual a 0, ficar em LOOP "esperando" o valor mu
 STA @510 #Se for diferente de 0, Limpa a leitura de KEY1
 LDA @320 #Le o valor das chaves SW(7~0)
 STA @14 #Armazena o valor das chaves no limite das centenas de milhar
-RET #Retorna para o LOOP principal
-ZERADISPLAY:
-LDA @6 #Carrega 0 no acumulador
-STA @288 # Zera o HEX1
-STA @289 # Zera o HEX2
-STA @290 # Zera o HEX3
-STA @291 # Zera o HEX4
-STA @292 # Zera o HEX5
-STA @293 # Zera o HEX6
-STA @256 # Zera os LEDS(7~0)
-STA @258 # Zera os LED(9)
-STA @257 # Zera os LED(8)
 RET #Retorna para o LOOP principal
 INCREMENTA:
 STA @511 #Limpa a leitura de KEY1
@@ -251,6 +337,21 @@ LDA @356 #Le o valor do botao FPGA
 CEQ @6 #Compara com 0 o botao FPGA
 JEQ @TRAVA #Se for igual, continua travado
 JMP @RESTART #Se for diferente, reinicia a contagem
-
-
-
+DISPLAYATUALIZADO0:
+LDI $9
+JMP @TESTE
+DISPLAYATUALIZADO1:
+LDI $9
+JMP @TESTE2
+DISPLAYATUALIZADO2:
+LDI $9
+JMP @TESTE3
+DISPLAYATUALIZADO3:
+LDI $9
+JMP @TESTE4
+DISPLAYATUALIZADO4:
+LDI $9
+JMP @TESTE5
+DISPLAYATUALIZADO5:
+LDI $9
+JMP @TESTE6
