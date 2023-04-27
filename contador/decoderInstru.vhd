@@ -25,26 +25,48 @@ architecture comportamento of decoderInstru is
   
   alias habEscritaMEM : std_logic is saida(0);
   alias habLeituraMEM : std_logic is saida(1);
+  alias habFlagIgual : std_logic is saida(2);
+  alias operacao : std_logic_vector is saida(4 downto 3);
+  alias habilitaA : std_logic is saida(5);
+  alias selMUX : std_logic is saida(6);
+  alias jeq : std_logic is saida(7);
+  alias jsr : std_logic is saida(8);
+  alias ret : std_logic is saida(9);
+  alias jmp : std_logic is saida(10);
+  alias habEscritaRet : std_logic is saida(11);
+  alias gt : std_logic is saida(12);
+  alias jgt : std_logic is saida(13);
 
   begin
+		habEscritaMEM <= '1' when (opcode = STA) else '0';
+		habLeituraMEM <= '1' when (opcode = LDA) or (opcode = SOMA) or (opcode = SUB) or (opcode = CEQ) or (opcode = GT)_ else '0';
+		habFlagIgual  <= '1' when (opcode = CEQ) else '0';
+		operacao 	  <= "10" when (opcode = LDA) or (opcode = LDI) else "01" when (opcode = SOMA) else "00";
+		habilitaA     <= '1' when (opcode = LDA) or (opcode = SOMA) or (opcode = SUB) or (opcode = LDI) else '0';
+		selMUX        <= '1' when (opcode = LDI) else '0';
+		jeq			  <= '1' when (opcode = JEQ) else '0';
+		jrs			  <= '1' when (opcode = JSR) else '0';
+		ret			  <= '1' when (opcode = RET) else '0';
+		jmp			  <= '1' when (opcode = JMP) else '0';
+		habEscritaRet <= '1' when (opcode = JSR) else '0';
+		gt				  <= '1' when (opcode = GT) else '0';
+		jgt			  <= '1' when (opcode = JGT) else '0';
+		
   
---  habEscritaMEM <= '1' when (opcode = STA) else '0';
---  habLeituraMEM <= '1' when (opcode = LDA) or (opcode = SOMA) or (opcode = SUB) else '0';
---  
   
   
-saida <= "00000000000000" when opcode = NOP else
-         "00000000110010" when opcode = LDA else
-         "00000000101010" when opcode = SOMA else
-         "00000000100010" when opcode = SUB else
-         "00000001110000" when opcode = LDI else
-			"00000000000001" when opcode = STA else
-			"00010000000000" when opcode = JMP else
-			"00000010000000" when opcode = JEQ else
-			"00000000000110" when opcode = CEQ else
-			"00100100000000" when opcode = JSR else
-			"00001000000000" when opcode = RET else	
-			"01000000010000" when opcode = GT else
-			"10000000000000" when opcode = JGT else
-         "00000000000000";  -- NOP para os opcodes Indefinidos
+--saida <= "00000000000000" when opcode = NOP else
+--         "00000000110010" when opcode = LDA else
+--         "00000000101010" when opcode = SOMA else
+--         "00000000100010" when opcode = SUB else
+--         "00000001110000" when opcode = LDI else
+--			  "00000000000001" when opcode = STA else
+--	  	 	  "00010000000000" when opcode = JMP else
+--		  	  "00000010000000" when opcode = JEQ else
+--			  "00000000000110" when opcode = CEQ else
+--			  "00100100000000" when opcode = JSR else
+--			  "00001000000000" when opcode = RET else	
+--			  "01000000010000" when opcode = GT else
+--			  "10000000000000" when opcode = JGT else
+--         "00000000000000";  -- NOP para os opcodes Indefinidos
 end architecture;
