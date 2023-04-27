@@ -22,8 +22,17 @@ architecture comportamento of decoderInstru is
   constant RET : std_logic_vector(3 downto 0) := "1010";
   constant GT : std_logic_vector(3 downto 0) := "1011";
   constant JGT : std_logic_vector(3 downto 0) := "1100";
+  
+  alias habEscritaMEM : std_logic is saida(0);
+  alias habLeituraMEM : std_logic is saida(1);
 
   begin
+  
+--  habEscritaMEM <= '1' when (opcode = STA) else '0';
+--  habLeituraMEM <= '1' when (opcode = LDA) or (opcode = SOMA) or (opcode = SUB) else '0';
+--  
+  
+  
 saida <= "00000000000000" when opcode = NOP else
          "00000000110010" when opcode = LDA else
          "00000000101010" when opcode = SOMA else
