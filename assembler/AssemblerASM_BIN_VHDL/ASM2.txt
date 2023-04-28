@@ -43,7 +43,6 @@ LDI $15
 STA @20   #Constante de limite de contagem (15)
 LDI $0
 STA @21   #Constante de limite de contagem (0)
-
 INICIOLOOP: #Loop principal
 LDA @353 # Le o valor de KEY1
 CEQ @6 # Compara o valor de KEY1 com 0
@@ -78,120 +77,185 @@ STA @510 #Limpa a leitura de KEY1
 ESPERAUNIDADE:
 LDA @320 #Le o valor das chaves SW(7~0)
 CEQ @8 #Compara com 10
-JEQ @DISPLAYATUALIZADO0
-CEQ @16 #Compara com 11
-JEQ @DISPLAYATUALIZADO0
-CEQ @17 #Compara com 12
-JEQ @DISPLAYATUALIZADO0
+JEQ @DISPLAYATUALIZADO0 #Se for 10, atualiza o display e vai para a proxima configuracao
+CEQ @16 #Compara com 11 
+JEQ @DISPLAYATUALIZADO0 #Se for 11, atualiza o display e vai para a proxima configuracao
+CEQ @17 #Compara com 12 
+JEQ @DISPLAYATUALIZADO0 #Se for 12, atualiza o display e vai para a proxima configuracao
 CEQ @18 #Compara com 13
-JEQ @DISPLAYATUALIZADO0
+JEQ @DISPLAYATUALIZADO0 #Se for 13, atualiza o display e vai para a proxima configuracao
 CEQ @19 #Compara com 14
-JEQ @DISPLAYATUALIZADO0
+JEQ @DISPLAYATUALIZADO0 #Se for 14, atualiza o display e vai para a proxima configuracao
 CEQ @20 #Compara com 15
-JEQ @DISPLAYATUALIZADO0
-TESTE:
+JEQ @DISPLAYATUALIZADO0 #Se for 15, atualiza o display e vai para a proxima configuracao
+RETORNA:
 STA @288 # Hex 0
 LDA @353 # Le KEY1
 CEQ @6 #Compara KEY1 com 0
 JEQ @ESPERAUNIDADE  #Se for 0, ou seja, nao esta apertado, espera ate apertar
 STA @510 #Limpa a leitura de KEY1
 LDA @320 #Le o valor das chaves SW(7~0)
+CEQ @8 #Compara com 10
+JEQ @VALORATUALIZADO0 #Se for 10, atualiza o valor e vai para a proxima configuracao
+CEQ @16 #Compara com 11
+JEQ @VALORATUALIZADO0 #Se for 11, atualiza o valor e vai para a proxima configuracao
+CEQ @17 #Compara com 12
+JEQ @VALORATUALIZADO0 #Se for 12, atualiza o valor e vai para a proxima configuracao
+CEQ @18 #Compara com 13
+JEQ @VALORATUALIZADO0 #Se for 13, atualiza o valor e vai para a proxima configuracao
+CEQ @19 #Compara com 14
+JEQ @VALORATUALIZADO0 #Se for 14, atualiza o valor e vai para a proxima configuracao
+CEQ @20 #Compara com 15
+JEQ @VALORATUALIZADO0 #Se for 15, atualiza o valor e vai para a proxima configuracao
+RETORNA7:
 STA @9   #Armazena o valor das chaves no limite das unidades
 ESPERADEZENA:
 LDI $4 #Carrega o valor 4
 STA @256 # Bota o valor nos LEDS
 LDA @320 #Le o valor das chaves SW(7~0)
 CEQ @8 #Compara com 10
-JEQ @DISPLAYATUALIZADO1
+JEQ @DISPLAYATUALIZADO1 #Se for 10, atualiza o display e vai para a proxima configuracao
 CEQ @16 #Compara com 11
-JEQ @DISPLAYATUALIZADO1
+JEQ @DISPLAYATUALIZADO1 #Se for 11, atualiza o display e vai para a proxima configuracao
 CEQ @17 #Compara com 12
-JEQ @DISPLAYATUALIZADO1
+JEQ @DISPLAYATUALIZADO1 #Se for 12, atualiza o display e vai para a proxima configuracao
 CEQ @18 #Compara com 13
-JEQ @DISPLAYATUALIZADO1
+JEQ @DISPLAYATUALIZADO1 #Se for 13, atualiza o display e vai para a proxima configuracao
 CEQ @19 #Compara com 14
-JEQ @DISPLAYATUALIZADO1
+JEQ @DISPLAYATUALIZADO1 #Se for 14, atualiza o display e vai para a proxima configuracao
 CEQ @20 #Compara com 15
-JEQ @DISPLAYATUALIZADO1
-TESTE2:
+JEQ @DISPLAYATUALIZADO1 #Se for 15, atualiza o display e vai para a proxima configuracao
+RETORNA2:
 STA @289 # Hex 1
 LDA @353 #Le o valor de KEY1 novamente
 CEQ @6 #Compara com 0 o valor de KEY1 
 JEQ @ESPERADEZENA #Se for igual a 0, ficar em LOOP "esperando" o valor mudar
 STA @510 #Se for diferente de 0, Limpa a leitura de KEY1
 LDA @320 #Le o valor das chaves SW(7~0)
+CEQ @8 #Compara com 10
+JEQ @VALORATUALIZADO1  #Se for 10, atualiza o valor e vai para a proxima configuracao
+CEQ @16 #Compara com 11
+JEQ @VALORATUALIZADO1 #Se for 11, atualiza o valor e vai para a proxima configuracao
+CEQ @17 #Compara com 12
+JEQ @VALORATUALIZADO1 #Se for 12, atualiza o valor e vai para a proxima configuracao
+CEQ @18 #Compara com 13
+JEQ @VALORATUALIZADO1 #Se for 13, atualiza o valor e vai para a proxima configuracao
+CEQ @19 #Compara com 14
+JEQ @VALORATUALIZADO1 #Se for 14, atualiza o valor e vai para a proxima configuracao
+CEQ @20 #Compara com 15
+JEQ @VALORATUALIZADO1 #Se for 15, atualiza o valor e vai para a proxima configuracao
+RETORNA8:
 STA @10 #Armazena o valor das chaves no limte das dezenas
 ESPERACENTENA:
 LDI $16 # Carrega o valor 16 no acumulador
 STA @256 # Bota o valor nos LEDS
 LDA @320 #Le o valor das chaves SW(7~0)
 CEQ @8 #Compara com 10
-JEQ @DISPLAYATUALIZADO2
+JEQ @DISPLAYATUALIZADO2 #Se for 10, atualiza o display e vai para a proxima configuracao
 CEQ @16 #Compara com 11
-JEQ @DISPLAYATUALIZADO2
+JEQ @DISPLAYATUALIZADO2 #Se for 11, atualiza o display e vai para a proxima configuracao
 CEQ @17 #Compara com 12
-JEQ @DISPLAYATUALIZADO2
+JEQ @DISPLAYATUALIZADO2 #Se for 12, atualiza o display e vai para a proxima configuracao
 CEQ @18 #Compara com 13
-JEQ @DISPLAYATUALIZADO2
+JEQ @DISPLAYATUALIZADO2 #Se for 13, atualiza o display e vai para a proxima configuracao
 CEQ @19 #Compara com 14
-JEQ @DISPLAYATUALIZADO2
+JEQ @DISPLAYATUALIZADO2 #Se for 14, atualiza o display e vai para a proxima configuracao
 CEQ @20 #Compara com 15
-JEQ @DISPLAYATUALIZADO2
-TESTE3:
+JEQ @DISPLAYATUALIZADO2 #Se for 15, atualiza o display e vai para a proxima configuracao
+RETORNA3:
 STA @290 # Hex 2
 LDA @353 #Le o valor de KEY1 novamente
 CEQ @6 #Compara com 0 o valor de KEY1 
 JEQ @ESPERACENTENA #Se for igual a 0, ficar em LOOP "esperando" o valor mudar
 STA @510 #Se for diferente de 0, Limpa a leitura de KEY1
 LDA @320 #Le o valor das chaves SW(7~0)
+CEQ @8 #Compara com 10
+JEQ @VALORATUALIZADO2 #Se for 10, atualiza o valor e vai para a proxima configuracao
+CEQ @16 #Compara com 11
+JEQ @VALORATUALIZADO2 #Se for 11, atualiza o valor e vai para a proxima configuracao
+CEQ @17 #Compara com 12
+JEQ @VALORATUALIZADO2 #Se for 12, atualiza o valor e vai para a proxima configuracao
+CEQ @18 #Compara com 13
+JEQ @VALORATUALIZADO2 #Se for 13, atualiza o valor e vai para a proxima configuracao
+CEQ @19 #Compara com 14
+JEQ @VALORATUALIZADO2   #Se for 14, atualiza o valor e vai para a proxima configuracao
+CEQ @20 #Compara com 15
+JEQ @VALORATUALIZADO2 #Se for 15, atualiza o valor e vai para a proxima configuracao
+RETORNA9:
 STA @11 #Armazena o valor das chaves no limite das centenas
 ESPERAUNIDADEMILHAR:
 LDI $32 # Carrega o valor 32 no acumulador
 STA @256 # Bota o valor nos LEDS
 LDA @320 #Le o valor das chaves SW(7~0)
 CEQ @8 #Compara com 10
-JEQ @DISPLAYATUALIZADO3
+JEQ @DISPLAYATUALIZADO3 #Se for 10, atualiza o display e vai para a proxima configuracao
 CEQ @16 #Compara com 11
-JEQ @DISPLAYATUALIZADO3
+JEQ @DISPLAYATUALIZADO3 #Se for 11, atualiza o display e vai para a proxima configuracao
 CEQ @17 #Compara com 12
-JEQ @DISPLAYATUALIZADO3
+JEQ @DISPLAYATUALIZADO3 #Se for 12, atualiza o display e vai para a proxima configuracao
 CEQ @18 #Compara com 13
-JEQ @DISPLAYATUALIZADO3
+JEQ @DISPLAYATUALIZADO3 #Se for 13, atualiza o display e vai para a proxima configuracao
 CEQ @19 #Compara com 14
-JEQ @DISPLAYATUALIZADO3
+JEQ @DISPLAYATUALIZADO3 #Se for 14, atualiza o display e vai para a proxima configuracao
 CEQ @20 #Compara com 15
-JEQ @DISPLAYATUALIZADO3
-TESTE4:
+JEQ @DISPLAYATUALIZADO3 #Se for 15, atualiza o display e vai para a proxima configuracao
+RETORNA4:
 STA @291 # Hex 3
 LDA @353 #Le o valor de KEY1 novamente
 CEQ @6 #Compara com 0 o valor de KEY1
 JEQ @ESPERAUNIDADEMILHAR #Se for igual a 0, ficar em LOOP "esperando" o valor mudar
 STA @510 #Se for diferente de 0, Limpa a leitura de KEY1
 LDA @320 #Le o valor das chaves SW(7~0)
+CEQ @8 #Compara com 10
+JEQ @VALORATUALIZADO3 #Se for 10, atualiza o valor e vai para a proxima configuracao
+CEQ @16 #Compara com 11
+JEQ @VALORATUALIZADO3 #Se for 11, atualiza o valor e vai para a proxima configuracao
+CEQ @17 #Compara com 12
+JEQ @VALORATUALIZADO3 #Se for 12, atualiza o valor e vai para a proxima configuracao
+CEQ @18 #Compara com 13
+JEQ @VALORATUALIZADO3 #Se for 13, atualiza o valor e vai para a proxima configuracao
+CEQ @19 #Compara com 14
+JEQ @VALORATUALIZADO3 #Se for 14, atualiza o valor e vai para a proxima configuracao
+CEQ @20 #Compara com 15
+JEQ @VALORATUALIZADO3 #Se for 15, atualiza o valor e vai para a proxima configuracao
+RETORNA10:
 STA @12 #Armazena o valor das chaves no limite das unidades de milhar
 ESPERADEZENAMILHAR:
 LDI $128 # Carrega o valor 128 no acumulador
 STA @256 # Bota o valor nos LEDS
 LDA @320 #Le o valor das chaves SW(7~0)
 CEQ @8 #Compara com 10
-JEQ @DISPLAYATUALIZADO4
+JEQ @DISPLAYATUALIZADO4 #Se for 10, atualiza o display e vai para a proxima configuracao
 CEQ @16 #Compara com 11
-JEQ @DISPLAYATUALIZADO4
+JEQ @DISPLAYATUALIZADO4 #Se for 11, atualiza o display e vai para a proxima configuracao
 CEQ @17 #Compara com 12
-JEQ @DISPLAYATUALIZADO4
+JEQ @DISPLAYATUALIZADO4 #Se for 12, atualiza o display e vai para a proxima configuracao
 CEQ @18 #Compara com 13
-JEQ @DISPLAYATUALIZADO4
+JEQ @DISPLAYATUALIZADO4 #Se for 13, atualiza o display e vai para a proxima configuracao
 CEQ @19 #Compara com 14
-JEQ @DISPLAYATUALIZADO4
+JEQ @DISPLAYATUALIZADO4 #Se for 14, atualiza o display e vai para a proxima configuracao
 CEQ @20 #Compara com 15
-JEQ @DISPLAYATUALIZADO4
-TESTE5:
+JEQ @DISPLAYATUALIZADO4 #Se for 15, atualiza o display e vai para a proxima configuracao
+RETORNA5:
 STA @292 # Hex 4
 LDA @353 #Le o valor de KEY1 novamente
 CEQ @6 #Compara com 0 o valor de KEY1 
 JEQ @ESPERADEZENAMILHAR #Se for igual a 0, ficar em LOOP "esperando" o valor mudar
 STA @510 #Se for diferente de 0, Limpa a leitura de KEY1
 LDA @320 #Le o valor das chaves SW(7~0)
+CEQ @8 #Compara com 10
+JEQ @VALORATUALIZADO4 #Se for 10, atualiza o valor e vai para a proxima configuracao
+CEQ @16 #Compara com 11
+JEQ @VALORATUALIZADO4 #Se for 11, atualiza o valor e vai para a proxima configuracao
+CEQ @17 #Compara com 12
+JEQ @VALORATUALIZADO4 #Se for 12, atualiza o valor e vai para a proxima configuracao
+CEQ @18 #Compara com 13
+JEQ @VALORATUALIZADO4 #Se for 13, atualiza o valor e vai para a proxima configuracao
+CEQ @19 #Compara com 14
+JEQ @VALORATUALIZADO4 #Se for 14, atualiza o valor e vai para a proxima configuracao
+CEQ @20 #Compara com 15
+JEQ @VALORATUALIZADO4 #Se for 15, atualiza o valor e vai para a proxima configuracao
+RETORNA11:
 STA @13 #Armazena o valor das chaves no limite das dezenas de milhar
 ESPERACENTENAMILHAR:
 LDA @6 #Carrega 0 no acumulador
@@ -200,24 +264,37 @@ LDI $1 # Carrega o valor 1 no acumulador
 STA @257 # Bota o valor nos LEDS
 LDA @320 #Le o valor das chaves SW(7~0)
 CEQ @8 #Compara com 10
-JEQ @DISPLAYATUALIZADO5
+JEQ @DISPLAYATUALIZADO5 #Se for 10, atualiza o display e vai para a proxima configuracao
 CEQ @16 #Compara com 11
-JEQ @DISPLAYATUALIZADO5
+JEQ @DISPLAYATUALIZADO5 #Se for 11, atualiza o display e vai para a proxima configuracao
 CEQ @17 #Compara com 12
-JEQ @DISPLAYATUALIZADO5
+JEQ @DISPLAYATUALIZADO5 #Se for 12, atualiza o display e vai para a proxima configuracao
 CEQ @18 #Compara com 13
-JEQ @DISPLAYATUALIZADO5
+JEQ @DISPLAYATUALIZADO5 #Se for 13, atualiza o display e vai para a proxima configuracao
 CEQ @19 #Compara com 14
-JEQ @DISPLAYATUALIZADO5
+JEQ @DISPLAYATUALIZADO5 #Se for 14, atualiza o display e vai para a proxima configuracao
 CEQ @20 #Compara com 15
-JEQ @DISPLAYATUALIZADO5
-TESTE6:
+JEQ @DISPLAYATUALIZADO5 #Se for 15, atualiza o display e vai para a proxima configuracao
+RETORNA6:
 STA @293 # Hex 5
 LDA @353 #Le o valor de KEY1 novamente
 CEQ @6 #Compara com 0 o valor de KEY1
 JEQ @ESPERACENTENAMILHAR #Se for igual a 0, ficar em LOOP "esperando" o valor mudar
 STA @510 #Se for diferente de 0, Limpa a leitura de KEY1
 LDA @320 #Le o valor das chaves SW(7~0)
+CEQ @8 #Compara com 10
+JEQ @VALORATUALIZADO5 #Se for 10, atualiza o valor e vai para a proxima configuracao
+CEQ @16 #Compara com 11
+JEQ @VALORATUALIZADO5 #Se for 11, atualiza o valor e vai para a proxima configuracao
+CEQ @17 #Compara com 12
+JEQ @VALORATUALIZADO5 #Se for 12, atualiza o valor e vai para a proxima configuracao
+CEQ @18 #Compara com 13
+JEQ @VALORATUALIZADO5 #Se for 13, atualiza o valor e vai para a proxima configuracao
+CEQ @19 #Compara com 14
+JEQ @VALORATUALIZADO5 #Se for 14, atualiza o valor e vai para a proxima configuracao
+CEQ @20 #Compara com 15
+JEQ @VALORATUALIZADO5 #Se for 15, atualiza o valor e vai para a proxima configuracao
+RETORNA12:
 STA @14 #Armazena o valor das chaves no limite das centenas de milhar
 RET #Retorna para o LOOP principal
 INCREMENTA:
@@ -337,21 +414,39 @@ LDA @356 #Le o valor do botao FPGA
 CEQ @6 #Compara com 0 o botao FPGA
 JEQ @TRAVA #Se for igual, continua travado
 JMP @RESTART #Se for diferente, reinicia a contagem
-DISPLAYATUALIZADO0:
+DISPLAYATUALIZADO0: #Atualiza o display das unidades
 LDI $9
-JMP @TESTE
-DISPLAYATUALIZADO1:
+JMP @RETORNA 
+DISPLAYATUALIZADO1: # Atualiza o display das dezenas
 LDI $9
-JMP @TESTE2
-DISPLAYATUALIZADO2:
+JMP @RETORNA2
+DISPLAYATUALIZADO2: # Atualiza o display das centenas
 LDI $9
-JMP @TESTE3
-DISPLAYATUALIZADO3:
+JMP @RETORNA3
+DISPLAYATUALIZADO3: # Atualiza o display das unidades de milhar
 LDI $9
-JMP @TESTE4
-DISPLAYATUALIZADO4:
+JMP @RETORNA4
+DISPLAYATUALIZADO4: # Atualiza o display das dezenas de milhar
 LDI $9
-JMP @TESTE5
-DISPLAYATUALIZADO5:
+JMP @RETORNA5
+DISPLAYATUALIZADO5: # Atualiza o display das centenas de milhar
 LDI $9
-JMP @TESTE6
+JMP @RETORNA6
+VALORATUALIZADO0: # Atualiza o valor das unidades
+LDI $9
+JMP @RETORNA7
+VALORATUALIZADO1: # Atualiza o valor das dezenas
+LDI $9
+JMP @RETORNA8
+VALORATUALIZADO2: # Atualiza o valor das centenas
+LDI $9
+JMP @RETORNA9
+VALORATUALIZADO3: # Atualiza o valor das unidades de milhar
+LDI $9
+JMP @RETORNA10
+VALORATUALIZADO4: # Atualiza o valor das dezenas de milhar
+LDI $9
+JMP @RETORNA11
+VALORATUALIZADO5: # Atualiza o valor das centenas de milhar
+LDI $9
+JMP @RETORNA12
