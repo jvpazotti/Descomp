@@ -248,10 +248,10 @@ TST_chave_8: entity work.buffer_3_state_8portas
 		  habilita =>  (rd and saida_decoder(5) and saida_decoder_2(1) and (not data_address(5))), 
 		  saida => dadoLido_DadoIN);
 		
-TST_chave_9: entity work.buffer_3_state_8portas
-        port map(entrada => "0000000" & SW(9), 
-		  habilita =>  (rd and saida_decoder(5) and saida_decoder_2(2) and (not data_address(5))), 
-		  saida => dadoLido_DadoIN);
+--TST_chave_9: entity work.buffer_3_state_8portas
+--        port map(entrada => "0000000" & SW(9), 
+--		  habilita =>  (rd and saida_decoder(5) and saida_decoder_2(2) and (not data_address(5))), 
+--		  saida => dadoLido_DadoIN);
 		 
 TST_Key0: entity work.buffer_3_state_8portas
         port map(entrada => "0000000" & saida_FF_KEY0,
@@ -289,7 +289,9 @@ div_KEY0:  entity work.divisorGenerico_e_Interface
 												and data_address(4) and data_address(3)
 												and data_address(2) and data_address(1)
 												and data_address(0) and wr),
-              leituraUmSegundo => saida_detector_KEY0);
+              leituraUmSegundo => saida_detector_KEY0,
+				  chave_sw => SW(9)
+				  );
 
 detector_KEY1: work.edgeDetector(bordaSubida)
         port map (clk => CLK, entrada => not(KEY(1)), saida => saida_detector_KEY1);
