@@ -26,7 +26,7 @@ SW[5] => buffer_3_state_8portas:TST_8_chaves.entrada[5]
 SW[6] => buffer_3_state_8portas:TST_8_chaves.entrada[6]
 SW[7] => buffer_3_state_8portas:TST_8_chaves.entrada[7]
 SW[8] => buffer_3_state_8portas:TST_chave_8.entrada[0]
-SW[9] => buffer_3_state_8portas:TST_chave_9.entrada[0]
+SW[9] => divisorgenerico_e_interface:div_KEY0.chave_sw
 FPGA_RESET_N => edgedetector:detector_FPGA_RESET.entrada
 LEDR[0] <= registradorgenerico:Reg.DOUT[0]
 LEDR[1] <= registradorgenerico:Reg.DOUT[1]
@@ -1504,33 +1504,6 @@ saida[6] <= saida[6].DB_MAX_OUTPUT_PORT_TYPE
 saida[7] <= saida[7].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|contador|buffer_3_state_8portas:TST_chave_9
-entrada[0] => saida[0].DATAIN
-entrada[1] => saida[1].DATAIN
-entrada[2] => saida[2].DATAIN
-entrada[3] => saida[3].DATAIN
-entrada[4] => saida[4].DATAIN
-entrada[5] => saida[5].DATAIN
-entrada[6] => saida[6].DATAIN
-entrada[7] => saida[7].DATAIN
-habilita => saida[0].OE
-habilita => saida[1].OE
-habilita => saida[2].OE
-habilita => saida[3].OE
-habilita => saida[4].OE
-habilita => saida[5].OE
-habilita => saida[6].OE
-habilita => saida[7].OE
-saida[0] <= saida[0].DB_MAX_OUTPUT_PORT_TYPE
-saida[1] <= saida[1].DB_MAX_OUTPUT_PORT_TYPE
-saida[2] <= saida[2].DB_MAX_OUTPUT_PORT_TYPE
-saida[3] <= saida[3].DB_MAX_OUTPUT_PORT_TYPE
-saida[4] <= saida[4].DB_MAX_OUTPUT_PORT_TYPE
-saida[5] <= saida[5].DB_MAX_OUTPUT_PORT_TYPE
-saida[6] <= saida[6].DB_MAX_OUTPUT_PORT_TYPE
-saida[7] <= saida[7].DB_MAX_OUTPUT_PORT_TYPE
-
-
 |contador|buffer_3_state_8portas:TST_Key0
 entrada[0] => saida[0].DATAIN
 entrada[1] => saida[1].DATAIN
@@ -1668,9 +1641,11 @@ saida[7] <= saida[7].DB_MAX_OUTPUT_PORT_TYPE
 
 |contador|divisorGenerico_e_Interface:div_KEY0
 clk => divisorgenerico:baseTempo.clk
+clk => divisorgenerico:baseTempoRapida.clk
 habilitaLeitura => leituraUmSegundo.OE
 limpaLeitura => flipflopgenerico:registraUmSegundo.RST
 leituraUmSegundo <= leituraUmSegundo.DB_MAX_OUTPUT_PORT_TYPE
+chave_sw => muxgenerico2x1_bit:mux.seletor_MUX
 
 
 |contador|divisorGenerico_e_Interface:div_KEY0|divisorGenerico:baseTempo
@@ -1693,7 +1668,40 @@ clk => contador[14].CLK
 clk => contador[15].CLK
 clk => contador[16].CLK
 clk => contador[17].CLK
+clk => contador[18].CLK
+clk => contador[19].CLK
+clk => contador[20].CLK
+clk => contador[21].CLK
+clk => contador[22].CLK
+clk => contador[23].CLK
+clk => contador[24].CLK
 saida_clk <= tick.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|contador|divisorGenerico_e_Interface:div_KEY0|divisorGenerico:baseTempoRapida
+clk => tick.CLK
+clk => contador[0].CLK
+clk => contador[1].CLK
+clk => contador[2].CLK
+clk => contador[3].CLK
+clk => contador[4].CLK
+clk => contador[5].CLK
+clk => contador[6].CLK
+clk => contador[7].CLK
+clk => contador[8].CLK
+clk => contador[9].CLK
+clk => contador[10].CLK
+clk => contador[11].CLK
+clk => contador[12].CLK
+clk => contador[13].CLK
+saida_clk <= tick.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|contador|divisorGenerico_e_Interface:div_KEY0|muxGenerico2x1_bit:mux
+entradaA_MUX => saida_MUX.DATAA
+entradaB_MUX => saida_MUX.DATAB
+seletor_MUX => saida_MUX.OUTPUTSELECT
+saida_MUX <= saida_MUX.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |contador|divisorGenerico_e_Interface:div_KEY0|flipflopGenerico:registraUmSegundo

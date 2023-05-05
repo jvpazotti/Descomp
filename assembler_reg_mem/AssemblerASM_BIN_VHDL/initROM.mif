@@ -358,5 +358,7 @@ CONTENT BEGIN
 336 : R1 & SOMA  & '0' & 04;	-- SOMA R1, @4
 337 : R1 & GT  & '0' & 14;	-- GT R1, @20
 338 : R0 & JGT  & '1' & 1F;	-- JGT @VOLTADEZENAMILHAR
-339 : R0 & RET  & '0' & 00;	-- RET	
+339 : R1 & LDI  & '0' & 00;	-- LDI R1, $0
+340 : R1 & STA  & '1' & 01;	-- STA R1, @257
+341 : R0 & RET  & '0' & 00;	-- RET	
 END;

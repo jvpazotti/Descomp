@@ -337,4 +337,6 @@ LDA R1, @5
 SOMA R1, @4
 GT R1, @20
 JGT @VOLTADEZENAMILHAR
+LDI R1, $0
+STA R1, @257
 RET#Retorna para o LOOP principal

@@ -337,4 +337,6 @@ tmp(335) := R1 & LDA  & '0' & x"05";	-- LDA R1, @5
 tmp(336) := R1 & SOMA  & '0' & x"04";	-- SOMA R1, @4
 tmp(337) := R1 & GT  & '0' & x"14";	-- GT R1, @20
 tmp(338) := R0 & JGT  & '1' & x"1F";	-- JGT @VOLTADEZENAMILHAR
-tmp(339) := R0 & RET  & '0' & x"00";	-- RET	#Retorna para o LOOP principal
+tmp(339) := R1 & LDI  & '0' & x"00";	-- LDI R1, $0
+tmp(340) := R1 & STA  & '1' & x"01";	-- STA R1, @257
+tmp(341) := R0 & RET  & '0' & x"00";	-- RET	#Retorna para o LOOP principal
