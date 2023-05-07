@@ -1,5 +1,5 @@
 Assembler report for relogio
-Fri May  5 15:09:46 2023
+Sun May  7 16:57:42 2023
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -38,7 +38,7 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Fri May  5 15:09:46 2023 ;
+; Assembler Status      ; Successful - Sun May  7 16:57:42 2023 ;
 ; Revision Name         ; relogio                               ;
 ; Top-level Entity Name ; contador                              ;
 ; Family                ; Cyclone V                             ;
@@ -67,8 +67,8 @@ https://fpgasoftware.intel.com/eula.
 +----------------+----------------------+
 ; Option         ; Setting              ;
 +----------------+----------------------+
-; JTAG usercode  ; 0x0064AD54           ;
-; Checksum       ; 0x0064AD54           ;
+; JTAG usercode  ; 0x0063DA8F           ;
+; Checksum       ; 0x0063DA8F           ;
 +----------------+----------------------+
 
 
@@ -78,12 +78,12 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Fri May  5 15:09:42 2023
+    Info: Processing started: Sun May  7 16:57:38 2023
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off relogio -c relogio
 Info (115030): Assembler is generating device programming files
 Info: Quartus Prime Assembler was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 492 megabytes
-    Info: Processing ended: Fri May  5 15:09:46 2023
+    Info: Peak virtual memory: 490 megabytes
+    Info: Processing ended: Sun May  7 16:57:42 2023
     Info: Elapsed time: 00:00:04
     Info: Total CPU time (on all processors): 00:00:04
 

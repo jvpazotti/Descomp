@@ -16,7 +16,6 @@ STA R0, @3
 STA R0, @4
 STA R0, @5
 STA R0, @6#Constante de comparacao (0)
-STA R0, @15#Flag que para contagem
 STA R0, @510
 STA R0, @511
 STA R0, @509
@@ -31,22 +30,20 @@ STA R0, @11
 STA R0, @12
 STA R0, @13
 STA R0, @14
+STA R0, @15
 LDI R0, $9
-STA R0, @16#Constante de limite de valor
+STA R0, @16#Constante de limite de valor(9)
 LDI R0, $5
-STA R0, @17#Constante de limite de valor de minutos e segundos
+STA R0, @17#Constante de limite de valor de minutos e segundos(5)
 LDI R0, $3
 STA R0, @18#Constante de limite de valor de horas1 (3)
 LDI R0, $2
 STA R0, @19#Constante de limite de valor de horas2 (2)
 LDI R0, $6
-STA R0, @20
+STA R0, @20#Constante de limite de valor (6)
 LDI R0, $4
-STA R0, @21
-LDI R0, $0
-STA R0, @22
+STA R0, @21#Constante de limite de valor (4)
 INICIOLOOP:#Loop principal
-INCREMENTADOR:# Incrementa ate chegar no limite de contagem
 LDA R2, @352# Le o valor de KEY0
 CEQ R2, @6# Compara o valor de KEY0 com 0
 JEQ @PULA1# Se for igual a 0, nao incrementa e atualiza os displays
@@ -60,9 +57,13 @@ JEQ @UNIDADEPASSOU#Se for igual a 10, incrementa a dezena
 STA R2, @0#Se for diferente de 10, armazena o valor da unidade
 LDA R2, @353# Le o valor de KEY1
 CEQ R2, @6# Compara o valor de KEY1 com 0
-JEQ @INICIOLOOP# Se for igual a 0, fica no aguardo para quando for 1
+JEQ @CONFEREKEY2# Se for igual a 0, ignora a subrotina de configuracao de hora
 JSR @CONFIGHORA# Se for diferente de 0, entra na sub rotina de configuracao de hora
-NOP
+CONFEREKEY2:
+LDA R2, @354# Le o valor de KEY2
+CEQ R2, @6# Compara o valor de KEY2 com 0
+JEQ @INICIOLOOP# Se for igual a 0, fica no aguardo para quando for 1
+JSR @ALARME# Se for diferente de 0, entra na sub rotina de configuracao de alarme
 JMP @INICIOLOOP#Retorna para o LOOP principal
 UNIDADEPASSOU:
 LDA R2, @6#Carrega 0 no acumulador
@@ -120,7 +121,6 @@ JEQ @UNIDADEMILHARPASSOU#Se for igual a 3, volta
 STA R2, @5#Se for diferente de 3, armazena o valor da centena de milhar
 JMP @INICIOLOOP#Retorna para o LOOP principal
 VIROUAHORA:
-JSR @ZERADISPLAY
 JMP @RESTART#Retorna para o LOOP principal
 ATUALIZA:#Atualiza os valores dos HEX
 LDA R3, @0#Le o valor das unidades
@@ -138,19 +138,7 @@ STA R3, @293#Armazena o valor das centenas de milhar no HEX5
 RET#Retorna para o LOOP principal
 PULA1:
 JSR @ATUALIZA# Atualiza os displays
-JMP @INCREMENTADOR# Volta para o loop principal
-ZERADISPLAY:
-LDA R0, @6#Carrega 0 no acumulador
-STA R0, @288# Zera o HEX1
-STA R0, @289# Zera o HEX2
-STA R0, @290# Zera o HEX3
-STA R0, @291# Zera o HEX4
-STA R0, @292# Zera o HEX5
-STA R0, @293# Zera o HEX6
-STA R0, @256# Zera os LEDS(7~0)
-STA R0, @258# Zera os LED(9)
-STA R0, @257# Zera os LED(8) # Zera os displays depois de configurar os limites
-RET
+JMP @INICIOLOOP# Volta para o loop principal
 CONFIGHORA:#Rotina de configuracao de hora
 LDA R0, @6#Carrega 0 no acumulador
 STA R0, @0#Armazenando 0 em unidade, dezena, centena, etc
@@ -262,6 +250,9 @@ LDI R1, $5
 IGNORA8:
 STA R1, @3#Armazena o valor das chaves no limite das unidades de milhar
 ESPERADEZENAMILHAR:
+LDA R1, @5#Le o valor da centena de milhar
+GT R1, @7#Compara com 1
+JGT @VOLTADEZENAMILHAR
 LDI R1, $128# Carrega o valor 128 no acumulador
 STA R1, @256# Bota o valor nos LEDS
 LDA R1, @320#Le o valor das chaves SW(7~0)
@@ -309,6 +300,9 @@ LDI R1, $3
 IGNORA14:
 STA R1, @4#Armazena o valor das chaves no limite das dezenas de milhar
 ESPERACENTENAMILHAR:
+LDA R1, @4#Le o valor da dezena de milhar
+GT R1, @18#Compara com 3
+JGT @HORACERTACENTENAMILHAR
 LDA R1, @6#Carrega 0 no acumulador
 STA R1, @256# Zera o valor nos LEDS(7~0)
 LDI R1, $1# Carrega o valor 1 no acumulador
@@ -333,8 +327,37 @@ VALORATUALIZADO12:
 LDI R1, $2
 IGNORA12:
 STA R1, @5#Armazena o valor das chaves no limite das centenas de milhar
-LDA R1, @5
-SOMA R1, @4
-GT R1, @20
-JGT @VOLTADEZENAMILHAR
+LDI R1, $0
+STA R1, @257
+JMP @FINALSUB
+HORACERTACENTENAMILHAR:
+LDA R1, @6#Carrega 0 no acumulador
+STA R1, @256# Zera o valor nos LEDS(7~0)
+LDI R1, $1# Carrega o valor 1 no acumulador
+STA R1, @257# Bota o valor nos LEDS
+LDA R1, @320#Le o valor das chaves SW(7~0)
+GT R1, @7#Compara com 1
+JGT @VALORATUALIZADO15#Se for maior que 1, atualiza os displays
+JMP @IGNORA13
+VALORATUALIZADO15:
+LDI R1, $1
+IGNORA13:
+STA R1, @293# Hex 5
+LDA R1, @353#Le o valor de KEY1 novamente
+CEQ R1, @6#Compara com 0 o valor de KEY1
+JEQ @ESPERACENTENAMILHAR#Se for igual a 0, ficar em LOOP "esperando" o valor mudar
+STA R1, @510#Se for diferente de 0, Limpa a leitura de KEY1
+LDA R1, @320#Le o valor das chaves SW(7~0)
+GT R1, @7#Compara com 1
+JGT @VALORATUALIZADO16#Se for maior que 1, atualiza os displays
+JMP @IGNORA14
+VALORATUALIZADO16:
+LDI R1, $1
+IGNORA14:
+STA R1, @5#Armazena o valor das chaves no limite das centenas de milhar
+LDI R1, $0
+STA R1, @257
+FINALSUB:
 RET#Retorna para o LOOP principal
+ALARME:
+RET

@@ -65,9 +65,13 @@ architecture arquitetura of contador is
   
   signal saida_FF_KEY1: std_logic;
   
+  signal saida_FF_KEY2: std_logic;
+  
   signal saida_detector_KEY0: std_logic;
   
   signal saida_detector_KEY1: std_logic;
+  
+  signal saida_detector_KEY2: std_logic;
   
   signal saida_detector_FPGA: std_logic;
   
@@ -264,7 +268,7 @@ TST_Key1: entity work.buffer_3_state_8portas
 		  saida => dadoLido_DadoIN);
 		 
 TST_Key2: entity work.buffer_3_state_8portas
-        port map(entrada => "0000000" & KEY(2),
+        port map(entrada => "0000000" & saida_FF_KEY2,
 		  habilita =>  (rd and saida_decoder(5) and saida_decoder_2(2) and data_address(5)),
 		  saida => dadoLido_DadoIN);
 		  
@@ -296,6 +300,9 @@ div_KEY0:  entity work.divisorGenerico_e_Interface
 detector_KEY1: work.edgeDetector(bordaSubida)
         port map (clk => CLK, entrada => not(KEY(1)), saida => saida_detector_KEY1);
 		  
+detector_KEY2: work.edgeDetector(bordaSubida)
+        port map (clk => CLK, entrada => not(KEY(2)), saida => saida_detector_KEY2);
+		  
 detector_FPGA_RESET: work.edgeDetector(bordaSubida)
         port map (clk => CLK, entrada => not(FPGA_RESET_N), saida => saida_detector_FPGA);
 		  
@@ -320,7 +327,18 @@ FF_KEY1: entity work.flipflopGenerico port map (DIN => '1',
 												and data_address(2) and data_address(1)
 												and (not data_address(0)) and wr)
 												);
-												
+
+FF_KEY2: entity work.flipflopGenerico port map (DIN => '1',
+												DOUT => saida_FF_KEY2,
+												ENABLE => '1',
+											   CLK => saida_detector_KEY2,
+												RST =>(data_address(8) and data_address(7) 
+												and data_address(6) and data_address(5)
+												and data_address(4) and data_address(3)
+												and data_address(2) and (not data_address(1))
+												and (not data_address(0)) and wr)
+												);												
+
 FF_FPGA: entity work.flipflopGenerico port map (DIN => '1',
 												DOUT => saida_FF_FPGA,
 												ENABLE => '1',

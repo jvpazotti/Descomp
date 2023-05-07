@@ -37,21 +37,21 @@ CONTENT BEGIN
 15 : R0 & STA  & '0' & 04;	-- STA R0, @4
 16 : R0 & STA  & '0' & 05;	-- STA R0, @5
 17 : R0 & STA  & '0' & 06;	-- STA R0, @6	
-18 : R0 & STA  & '0' & 0F;	-- STA R0, @15	
-19 : R0 & STA  & '1' & FE;	-- STA R0, @510
-20 : R0 & STA  & '1' & FF;	-- STA R0, @511
-21 : R0 & STA  & '1' & FD;	-- STA R0, @509
-22 : R0 & LDI  & '0' & 01;	-- LDI R0, $1
-23 : R0 & STA  & '0' & 07;	-- STA R0, @7	
-24 : R0 & LDI  & '0' & 0A;	-- LDI R0, $10
-25 : R0 & STA  & '0' & 08;	-- STA R0, @8	
-26 : R0 & LDI  & '0' & 00;	-- LDI R0, $0
-27 : R0 & STA  & '0' & 09;	-- STA R0, @9	
-28 : R0 & STA  & '0' & 0A;	-- STA R0, @10
-29 : R0 & STA  & '0' & 0B;	-- STA R0, @11
-30 : R0 & STA  & '0' & 0C;	-- STA R0, @12
-31 : R0 & STA  & '0' & 0D;	-- STA R0, @13
-32 : R0 & STA  & '0' & 0E;	-- STA R0, @14
+18 : R0 & STA  & '1' & FE;	-- STA R0, @510
+19 : R0 & STA  & '1' & FF;	-- STA R0, @511
+20 : R0 & STA  & '1' & FD;	-- STA R0, @509
+21 : R0 & LDI  & '0' & 01;	-- LDI R0, $1
+22 : R0 & STA  & '0' & 07;	-- STA R0, @7	
+23 : R0 & LDI  & '0' & 0A;	-- LDI R0, $10
+24 : R0 & STA  & '0' & 08;	-- STA R0, @8	
+25 : R0 & LDI  & '0' & 00;	-- LDI R0, $0
+26 : R0 & STA  & '0' & 09;	-- STA R0, @9	
+27 : R0 & STA  & '0' & 0A;	-- STA R0, @10
+28 : R0 & STA  & '0' & 0B;	-- STA R0, @11
+29 : R0 & STA  & '0' & 0C;	-- STA R0, @12
+30 : R0 & STA  & '0' & 0D;	-- STA R0, @13
+31 : R0 & STA  & '0' & 0E;	-- STA R0, @14
+32 : R0 & STA  & '0' & 0F;	-- STA R0, @15
 33 : R0 & LDI  & '0' & 09;	-- LDI R0, $9
 34 : R0 & STA  & '0' & 10;	-- STA R0, @16	
 35 : R0 & LDI  & '0' & 05;	-- LDI R0, $5
@@ -61,304 +61,327 @@ CONTENT BEGIN
 39 : R0 & LDI  & '0' & 02;	-- LDI R0, $2
 40 : R0 & STA  & '0' & 13;	-- STA R0, @19	
 41 : R0 & LDI  & '0' & 06;	-- LDI R0, $6
-42 : R0 & STA  & '0' & 14;	-- STA R0, @20
+42 : R0 & STA  & '0' & 14;	-- STA R0, @20	
 43 : R0 & LDI  & '0' & 04;	-- LDI R0, $4
-44 : R0 & STA  & '0' & 15;	-- STA R0, @21
+44 : R0 & STA  & '0' & 15;	-- STA R0, @21	
 45 : R0 & LDI  & '0' & 00;	-- LDI R0, $0
-46 : R0 & STA  & '0' & 16;	-- STA R0, @22
+46 : R0 & STA  & '0' & 16;	-- STA R0, @22	
 47 : R0 & NOP  & '0' & 00;	-- NOP	
-48 : R0 & NOP  & '0' & 00;	-- NOP	
-49 : R2 & LDA  & '1' & 60;	-- LDA R2, @352	
-50 : R2 & CEQ  & '0' & 06;	-- CEQ R2, @6	
-51 : R0 & JEQ  & '0' & 8A;	-- JEQ @PULA1	
-52 : R0 & NOP  & '0' & 00;	-- NOP
-53 : R2 & STA  & '1' & FF;	-- STA R2, @511	
-54 : R0 & NOP  & '0' & 00;	-- NOP
-55 : R2 & LDA  & '0' & 00;	-- LDA R2, @0	
-56 : R2 & SOMA  & '0' & 07;	-- SOMA R2, @7	
-57 : R2 & CEQ  & '0' & 08;	-- CEQ R2, @8	
-58 : R0 & JEQ  & '0' & 42;	-- JEQ @UNIDADEPASSOU	
-59 : R2 & STA  & '0' & 00;	-- STA R2, @0	
-60 : R2 & LDA  & '1' & 61;	-- LDA R2, @353	
-61 : R2 & CEQ  & '0' & 06;	-- CEQ R2, @6	
-62 : R0 & JEQ  & '0' & 2F;	-- JEQ @INICIOLOOP	
-63 : R0 & JSR  & '0' & 99;	-- JSR @CONFIGHORA	
-64 : R0 & NOP  & '0' & 00;	-- NOP
-65 : R0 & JMP  & '0' & 2F;	-- JMP @INICIOLOOP	
-66 : R0 & NOP  & '0' & 00;	-- NOP
-67 : R2 & LDA  & '0' & 06;	-- LDA R2, @6	
-68 : R2 & STA  & '0' & 00;	-- STA R2, @0	
-69 : R2 & LDA  & '0' & 01;	-- LDA R2, @1	
-70 : R2 & SOMA  & '0' & 07;	-- SOMA R2, @7	
-71 : R2 & CEQ  & '0' & 14;	-- CEQ R2, @20	
-72 : R2 & JEQ  & '0' & 4B;	-- JEQ R2, @DEZENAPASSOU	
-73 : R2 & STA  & '0' & 01;	-- STA R2, @1	
-74 : R0 & JMP  & '0' & 2F;	-- JMP @INICIOLOOP	
-75 : R0 & NOP  & '0' & 00;	-- NOP
-76 : R2 & LDA  & '0' & 06;	-- LDA R2, @6	
-77 : R2 & STA  & '0' & 01;	-- STA R2, @1	
-78 : R2 & LDA  & '0' & 02;	-- LDA R2, @2	
-79 : R2 & SOMA  & '0' & 07;	-- SOMA R2, @7	
-80 : R2 & CEQ  & '0' & 08;	-- CEQ R2, @8	
-81 : R0 & JEQ  & '0' & 54;	-- JEQ @CENTENAPASSOU	
-82 : R2 & STA  & '0' & 02;	-- STA R2, @2	
-83 : R0 & JMP  & '0' & 2F;	-- JMP @INICIOLOOP	
-84 : R0 & NOP  & '0' & 00;	-- NOP
-85 : R2 & LDA  & '0' & 06;	-- LDA R2, @6	
-86 : R2 & STA  & '0' & 02;	-- STA R2, @2	
-87 : R2 & LDA  & '0' & 03;	-- LDA R2, @3	
-88 : R2 & SOMA  & '0' & 07;	-- SOMA R2, @7	
-89 : R2 & CEQ  & '0' & 14;	-- CEQ R2, @20	
-90 : R0 & JEQ  & '0' & 5D;	-- JEQ @UNIDADEMILHARPASSOU	
-91 : R2 & STA  & '0' & 03;	-- STA R2, @3	
-92 : R0 & JMP  & '0' & 2F;	-- JMP @INICIOLOOP	
-93 : R0 & NOP  & '0' & 00;	-- NOP
-94 : R2 & LDA  & '0' & 06;	-- LDA R2, @6	
-95 : R2 & STA  & '0' & 03;	-- STA R2, @3	
-96 : R2 & LDA  & '0' & 05;	-- LDA R2, @5	
-97 : R2 & CEQ  & '0' & 13;	-- CEQ R2, @19	
-98 : R0 & JEQ  & '0' & 69;	-- JEQ @HORACERTADEZENAMILHAR	
-99 : R2 & LDA  & '0' & 04;	-- LDA R2, @4	
-100 : R2 & SOMA  & '0' & 07;	-- SOMA R2, @7	
-101 : R2 & CEQ  & '0' & 08;	-- CEQ R2, @8	
-102 : R0 & JEQ  & '0' & 70;	-- JEQ @DEZENAMILHARPASSOU	
-103 : R2 & STA  & '0' & 04;	-- STA R2, @4	
-104 : R0 & JMP  & '0' & 2F;	-- JMP @INICIOLOOP	
-105 : R0 & NOP  & '0' & 00;	-- NOP
-106 : R2 & LDA  & '0' & 04;	-- LDA R2, @4	
-107 : R2 & SOMA  & '0' & 07;	-- SOMA R2, @7	
-108 : R2 & CEQ  & '0' & 15;	-- CEQ R2, @21	
-109 : R0 & JEQ  & '0' & 79;	-- JEQ @VIROUAHORA	
-110 : R2 & STA  & '0' & 04;	-- STA R2, @4	
-111 : R0 & JMP  & '0' & 2F;	-- JMP @INICIOLOOP	
-112 : R0 & NOP  & '0' & 00;	-- NOP
-113 : R2 & LDA  & '0' & 06;	-- LDA R2, @6	
-114 : R2 & STA  & '0' & 04;	-- STA R2, @4	
-115 : R2 & LDA  & '0' & 05;	-- LDA R2, @5	
-116 : R2 & SOMA  & '0' & 07;	-- SOMA R2, @7	
-117 : R2 & CEQ  & '0' & 12;	-- CEQ R2, @18	
-118 : R0 & JEQ  & '0' & 5D;	-- JEQ @UNIDADEMILHARPASSOU	
-119 : R2 & STA  & '0' & 05;	-- STA R2, @5	
-120 : R0 & JMP  & '0' & 2F;	-- JMP @INICIOLOOP	
-121 : R0 & NOP  & '0' & 00;	-- NOP
-122 : R0 & JSR  & '0' & 8D;	-- JSR @ZERADISPLAY
-123 : R0 & JMP  & '0' & 00;	-- JMP @RESTART	
-124 : R0 & NOP  & '0' & 00;	-- NOP	
-125 : R3 & LDA  & '0' & 00;	-- LDA R3, @0	
-126 : R3 & STA  & '1' & 20;	-- STA R3, @288	
-127 : R3 & LDA  & '0' & 01;	-- LDA R3, @1	
-128 : R3 & STA  & '1' & 21;	-- STA R3, @289	
-129 : R3 & LDA  & '0' & 02;	-- LDA R3, @2	
-130 : R3 & STA  & '1' & 22;	-- STA R3, @290	
-131 : R3 & LDA  & '0' & 03;	-- LDA R3, @3	
-132 : R3 & STA  & '1' & 23;	-- STA R3, @291	
-133 : R3 & LDA  & '0' & 04;	-- LDA R3, @4	
-134 : R3 & STA  & '1' & 24;	-- STA R3, @292	
-135 : R3 & LDA  & '0' & 05;	-- LDA R3, @5	
-136 : R3 & STA  & '1' & 25;	-- STA R3, @293	
-137 : R0 & RET  & '0' & 00;	-- RET	
-138 : R0 & NOP  & '0' & 00;	-- NOP
-139 : R0 & JSR  & '0' & 7C;	-- JSR @ATUALIZA	
-140 : R0 & JMP  & '0' & 30;	-- JMP @INCREMENTADOR	
-141 : R0 & NOP  & '0' & 00;	-- NOP
-142 : R0 & LDA  & '0' & 06;	-- LDA R0, @6	
-143 : R0 & STA  & '1' & 20;	-- STA R0, @288	
-144 : R0 & STA  & '1' & 21;	-- STA R0, @289	
-145 : R0 & STA  & '1' & 22;	-- STA R0, @290	
-146 : R0 & STA  & '1' & 23;	-- STA R0, @291	
-147 : R0 & STA  & '1' & 24;	-- STA R0, @292	
-148 : R0 & STA  & '1' & 25;	-- STA R0, @293	
-149 : R0 & STA  & '1' & 00;	-- STA R0, @256	
-150 : R0 & STA  & '1' & 02;	-- STA R0, @258	
-151 : R0 & STA  & '1' & 01;	-- STA R0, @257	
-152 : R0 & RET  & '0' & 00;	-- RET
-153 : R0 & NOP  & '0' & 00;	-- NOP	
-154 : R0 & LDA  & '0' & 06;	-- LDA R0, @6	
-155 : R0 & STA  & '0' & 00;	-- STA R0, @0	
-156 : R0 & STA  & '0' & 01;	-- STA R0, @1
-157 : R0 & STA  & '0' & 02;	-- STA R0, @2
-158 : R0 & STA  & '0' & 03;	-- STA R0, @3
-159 : R0 & STA  & '0' & 04;	-- STA R0, @4
-160 : R0 & STA  & '0' & 05;	-- STA R0, @5
-161 : R0 & STA  & '1' & 20;	-- STA R0, @288	
-162 : R0 & STA  & '1' & 21;	-- STA R0, @289	
-163 : R0 & STA  & '1' & 22;	-- STA R0, @290	
-164 : R0 & STA  & '1' & 23;	-- STA R0, @291	
-165 : R0 & STA  & '1' & 24;	-- STA R0, @292	
-166 : R0 & STA  & '1' & 25;	-- STA R0, @293	
-167 : R0 & STA  & '1' & 00;	-- STA R0, @256	
-168 : R0 & STA  & '1' & 02;	-- STA R0, @258	
-169 : R0 & STA  & '1' & 01;	-- STA R0, @257	
-170 : R1 & LDI  & '0' & 01;	-- LDI R1, $1	
-171 : R1 & STA  & '1' & 00;	-- STA R1, @256	
-172 : R1 & STA  & '1' & FE;	-- STA R1, @510	
-173 : R0 & NOP  & '0' & 00;	-- NOP
-174 : R1 & LDA  & '1' & 40;	-- LDA R1, @320	
-175 : R1 & GT  & '0' & 10;	-- GT R1, @16	
-176 : R0 & JGT  & '0' & B2;	-- JGT @VALORATUALIZADO	
-177 : R0 & JMP  & '0' & B4;	-- JMP @IGNORA
-178 : R0 & NOP  & '0' & 00;	-- NOP
-179 : R1 & LDI  & '0' & 09;	-- LDI R1, $9
+48 : R2 & LDA  & '1' & 60;	-- LDA R2, @352	
+49 : R2 & CEQ  & '0' & 06;	-- CEQ R2, @6	
+50 : R0 & JEQ  & '0' & 8C;	-- JEQ @PULA1	
+51 : R0 & NOP  & '0' & 00;	-- NOP
+52 : R2 & STA  & '1' & FF;	-- STA R2, @511	
+53 : R0 & NOP  & '0' & 00;	-- NOP
+54 : R2 & LDA  & '0' & 00;	-- LDA R2, @0	
+55 : R2 & SOMA  & '0' & 07;	-- SOMA R2, @7	
+56 : R2 & CEQ  & '0' & 08;	-- CEQ R2, @8	
+57 : R0 & JEQ  & '0' & 45;	-- JEQ @UNIDADEPASSOU	
+58 : R2 & STA  & '0' & 00;	-- STA R2, @0	
+59 : R2 & LDA  & '1' & 61;	-- LDA R2, @353	
+60 : R2 & CEQ  & '0' & 06;	-- CEQ R2, @6	
+61 : R0 & JEQ  & '0' & 3F;	-- JEQ @CONFEREKEY2	
+62 : R0 & JSR  & '0' & 8F;	-- JSR @CONFIGHORA	
+63 : R0 & NOP  & '0' & 00;	-- NOP
+64 : R2 & LDA  & '1' & 62;	-- LDA R2, @354	
+65 : R2 & CEQ  & '0' & 06;	-- CEQ R2, @6	
+66 : R0 & JEQ  & '0' & 2F;	-- JEQ @INICIOLOOP	
+67 : R0 & JSR  & '1' & 6B;	-- JSR @ALARME	
+68 : R0 & JMP  & '0' & 2F;	-- JMP @INICIOLOOP	
+69 : R0 & NOP  & '0' & 00;	-- NOP
+70 : R2 & LDA  & '0' & 06;	-- LDA R2, @6	
+71 : R2 & STA  & '0' & 00;	-- STA R2, @0	
+72 : R2 & LDA  & '0' & 01;	-- LDA R2, @1	
+73 : R2 & SOMA  & '0' & 07;	-- SOMA R2, @7	
+74 : R2 & CEQ  & '0' & 14;	-- CEQ R2, @20	
+75 : R2 & JEQ  & '0' & 4E;	-- JEQ R2, @DEZENAPASSOU	
+76 : R2 & STA  & '0' & 01;	-- STA R2, @1	
+77 : R0 & JMP  & '0' & 2F;	-- JMP @INICIOLOOP	
+78 : R0 & NOP  & '0' & 00;	-- NOP
+79 : R2 & LDA  & '0' & 06;	-- LDA R2, @6	
+80 : R2 & STA  & '0' & 01;	-- STA R2, @1	
+81 : R2 & LDA  & '0' & 02;	-- LDA R2, @2	
+82 : R2 & SOMA  & '0' & 07;	-- SOMA R2, @7	
+83 : R2 & CEQ  & '0' & 08;	-- CEQ R2, @8	
+84 : R0 & JEQ  & '0' & 57;	-- JEQ @CENTENAPASSOU	
+85 : R2 & STA  & '0' & 02;	-- STA R2, @2	
+86 : R0 & JMP  & '0' & 2F;	-- JMP @INICIOLOOP	
+87 : R0 & NOP  & '0' & 00;	-- NOP
+88 : R2 & LDA  & '0' & 06;	-- LDA R2, @6	
+89 : R2 & STA  & '0' & 02;	-- STA R2, @2	
+90 : R2 & LDA  & '0' & 03;	-- LDA R2, @3	
+91 : R2 & SOMA  & '0' & 07;	-- SOMA R2, @7	
+92 : R2 & CEQ  & '0' & 14;	-- CEQ R2, @20	
+93 : R0 & JEQ  & '0' & 60;	-- JEQ @UNIDADEMILHARPASSOU	
+94 : R2 & STA  & '0' & 03;	-- STA R2, @3	
+95 : R0 & JMP  & '0' & 2F;	-- JMP @INICIOLOOP	
+96 : R0 & NOP  & '0' & 00;	-- NOP
+97 : R2 & LDA  & '0' & 06;	-- LDA R2, @6	
+98 : R2 & STA  & '0' & 03;	-- STA R2, @3	
+99 : R2 & LDA  & '0' & 05;	-- LDA R2, @5	
+100 : R2 & CEQ  & '0' & 13;	-- CEQ R2, @19	
+101 : R0 & JEQ  & '0' & 6C;	-- JEQ @HORACERTADEZENAMILHAR	
+102 : R2 & LDA  & '0' & 04;	-- LDA R2, @4	
+103 : R2 & SOMA  & '0' & 07;	-- SOMA R2, @7	
+104 : R2 & CEQ  & '0' & 08;	-- CEQ R2, @8	
+105 : R0 & JEQ  & '0' & 73;	-- JEQ @DEZENAMILHARPASSOU	
+106 : R2 & STA  & '0' & 04;	-- STA R2, @4	
+107 : R0 & JMP  & '0' & 2F;	-- JMP @INICIOLOOP	
+108 : R0 & NOP  & '0' & 00;	-- NOP
+109 : R2 & LDA  & '0' & 04;	-- LDA R2, @4	
+110 : R2 & SOMA  & '0' & 07;	-- SOMA R2, @7	
+111 : R2 & CEQ  & '0' & 15;	-- CEQ R2, @21	
+112 : R0 & JEQ  & '0' & 7C;	-- JEQ @VIROUAHORA	
+113 : R2 & STA  & '0' & 04;	-- STA R2, @4	
+114 : R0 & JMP  & '0' & 2F;	-- JMP @INICIOLOOP	
+115 : R0 & NOP  & '0' & 00;	-- NOP
+116 : R2 & LDA  & '0' & 06;	-- LDA R2, @6	
+117 : R2 & STA  & '0' & 04;	-- STA R2, @4	
+118 : R2 & LDA  & '0' & 05;	-- LDA R2, @5	
+119 : R2 & SOMA  & '0' & 07;	-- SOMA R2, @7	
+120 : R2 & CEQ  & '0' & 12;	-- CEQ R2, @18	
+121 : R0 & JEQ  & '0' & 60;	-- JEQ @UNIDADEMILHARPASSOU	
+122 : R2 & STA  & '0' & 05;	-- STA R2, @5	
+123 : R0 & JMP  & '0' & 2F;	-- JMP @INICIOLOOP	
+124 : R0 & NOP  & '0' & 00;	-- NOP
+125 : R0 & JMP  & '0' & 00;	-- JMP @RESTART	
+126 : R0 & NOP  & '0' & 00;	-- NOP	
+127 : R3 & LDA  & '0' & 00;	-- LDA R3, @0	
+128 : R3 & STA  & '1' & 20;	-- STA R3, @288	
+129 : R3 & LDA  & '0' & 01;	-- LDA R3, @1	
+130 : R3 & STA  & '1' & 21;	-- STA R3, @289	
+131 : R3 & LDA  & '0' & 02;	-- LDA R3, @2	
+132 : R3 & STA  & '1' & 22;	-- STA R3, @290	
+133 : R3 & LDA  & '0' & 03;	-- LDA R3, @3	
+134 : R3 & STA  & '1' & 23;	-- STA R3, @291	
+135 : R3 & LDA  & '0' & 04;	-- LDA R3, @4	
+136 : R3 & STA  & '1' & 24;	-- STA R3, @292	
+137 : R3 & LDA  & '0' & 05;	-- LDA R3, @5	
+138 : R3 & STA  & '1' & 25;	-- STA R3, @293	
+139 : R0 & RET  & '0' & 00;	-- RET	
+140 : R0 & NOP  & '0' & 00;	-- NOP
+141 : R0 & JSR  & '0' & 7E;	-- JSR @ATUALIZA	
+142 : R0 & JMP  & '0' & 2F;	-- JMP @INICIOLOOP	
+143 : R0 & NOP  & '0' & 00;	-- NOP	
+144 : R0 & LDA  & '0' & 06;	-- LDA R0, @6	
+145 : R0 & STA  & '0' & 00;	-- STA R0, @0	
+146 : R0 & STA  & '0' & 01;	-- STA R0, @1
+147 : R0 & STA  & '0' & 02;	-- STA R0, @2
+148 : R0 & STA  & '0' & 03;	-- STA R0, @3
+149 : R0 & STA  & '0' & 04;	-- STA R0, @4
+150 : R0 & STA  & '0' & 05;	-- STA R0, @5
+151 : R0 & STA  & '1' & 20;	-- STA R0, @288	
+152 : R0 & STA  & '1' & 21;	-- STA R0, @289	
+153 : R0 & STA  & '1' & 22;	-- STA R0, @290	
+154 : R0 & STA  & '1' & 23;	-- STA R0, @291	
+155 : R0 & STA  & '1' & 24;	-- STA R0, @292	
+156 : R0 & STA  & '1' & 25;	-- STA R0, @293	
+157 : R0 & STA  & '1' & 00;	-- STA R0, @256	
+158 : R0 & STA  & '1' & 02;	-- STA R0, @258	
+159 : R0 & STA  & '1' & 01;	-- STA R0, @257	
+160 : R1 & LDI  & '0' & 01;	-- LDI R1, $1	
+161 : R1 & STA  & '1' & 00;	-- STA R1, @256	
+162 : R1 & STA  & '1' & FE;	-- STA R1, @510	
+163 : R0 & NOP  & '0' & 00;	-- NOP
+164 : R1 & LDA  & '1' & 40;	-- LDA R1, @320	
+165 : R1 & GT  & '0' & 10;	-- GT R1, @16	
+166 : R0 & JGT  & '0' & A8;	-- JGT @VALORATUALIZADO	
+167 : R0 & JMP  & '0' & AA;	-- JMP @IGNORA
+168 : R0 & NOP  & '0' & 00;	-- NOP
+169 : R1 & LDI  & '0' & 09;	-- LDI R1, $9
+170 : R0 & NOP  & '0' & 00;	-- NOP
+171 : R1 & STA  & '1' & 20;	-- STA R1, @288	
+172 : R1 & LDA  & '1' & 61;	-- LDA R1, @353	
+173 : R1 & CEQ  & '0' & 06;	-- CEQ R1, @6	
+174 : R0 & JEQ  & '0' & A3;	-- JEQ @ESPERAUNIDADE	
+175 : R1 & STA  & '1' & FE;	-- STA R1, @510	
+176 : R1 & LDA  & '1' & 40;	-- LDA R1, @320	
+177 : R1 & GT  & '0' & 10;	-- GT R1, @16	
+178 : R0 & JGT  & '0' & B4;	-- JGT @VALORATUALIZADO2	
+179 : R0 & JMP  & '0' & B6;	-- JMP @IGNORA2
 180 : R0 & NOP  & '0' & 00;	-- NOP
-181 : R1 & STA  & '1' & 20;	-- STA R1, @288	
-182 : R1 & LDA  & '1' & 61;	-- LDA R1, @353	
-183 : R1 & CEQ  & '0' & 06;	-- CEQ R1, @6	
-184 : R0 & JEQ  & '0' & AD;	-- JEQ @ESPERAUNIDADE	
-185 : R1 & STA  & '1' & FE;	-- STA R1, @510	
-186 : R1 & LDA  & '1' & 40;	-- LDA R1, @320	
-187 : R1 & GT  & '0' & 10;	-- GT R1, @16	
-188 : R0 & JGT  & '0' & BE;	-- JGT @VALORATUALIZADO2	
-189 : R0 & JMP  & '0' & C0;	-- JMP @IGNORA2
-190 : R0 & NOP  & '0' & 00;	-- NOP
-191 : R1 & LDI  & '0' & 09;	-- LDI R1, $9
-192 : R0 & NOP  & '0' & 00;	-- NOP
-193 : R1 & STA  & '0' & 00;	-- STA R1, @0	
-194 : R0 & NOP  & '0' & 00;	-- NOP
-195 : R1 & LDI  & '0' & 04;	-- LDI R1, $4	
-196 : R1 & STA  & '1' & 00;	-- STA R1, @256	
-197 : R1 & LDA  & '1' & 40;	-- LDA R1, @320	
-198 : R1 & GT  & '0' & 11;	-- GT R1, @17	
-199 : R0 & JGT  & '0' & C9;	-- JGT @VALORATUALIZADO3	
-200 : R0 & JMP  & '0' & CB;	-- JMP @IGNORA3
-201 : R0 & NOP  & '0' & 00;	-- NOP
-202 : R1 & LDI  & '0' & 05;	-- LDI R1, $5
+181 : R1 & LDI  & '0' & 09;	-- LDI R1, $9
+182 : R0 & NOP  & '0' & 00;	-- NOP
+183 : R1 & STA  & '0' & 00;	-- STA R1, @0	
+184 : R0 & NOP  & '0' & 00;	-- NOP
+185 : R1 & LDI  & '0' & 04;	-- LDI R1, $4	
+186 : R1 & STA  & '1' & 00;	-- STA R1, @256	
+187 : R1 & LDA  & '1' & 40;	-- LDA R1, @320	
+188 : R1 & GT  & '0' & 11;	-- GT R1, @17	
+189 : R0 & JGT  & '0' & BF;	-- JGT @VALORATUALIZADO3	
+190 : R0 & JMP  & '0' & C1;	-- JMP @IGNORA3
+191 : R0 & NOP  & '0' & 00;	-- NOP
+192 : R1 & LDI  & '0' & 05;	-- LDI R1, $5
+193 : R0 & NOP  & '0' & 00;	-- NOP
+194 : R1 & STA  & '1' & 21;	-- STA R1, @289	
+195 : R1 & LDA  & '1' & 61;	-- LDA R1, @353	
+196 : R1 & CEQ  & '0' & 06;	-- CEQ R1, @6	
+197 : R0 & JEQ  & '0' & B8;	-- JEQ @ESPERADEZENA	
+198 : R1 & STA  & '1' & FE;	-- STA R1, @510	
+199 : R1 & LDA  & '1' & 40;	-- LDA R1, @320	
+200 : R1 & GT  & '0' & 11;	-- GT R1, @17	
+201 : R0 & JGT  & '0' & CB;	-- JGT @VALORATUALIZADO4	
+202 : R0 & JMP  & '0' & CD;	-- JMP @IGNORA4
 203 : R0 & NOP  & '0' & 00;	-- NOP
-204 : R1 & STA  & '1' & 21;	-- STA R1, @289	
-205 : R1 & LDA  & '1' & 61;	-- LDA R1, @353	
-206 : R1 & CEQ  & '0' & 06;	-- CEQ R1, @6	
-207 : R0 & JEQ  & '0' & C2;	-- JEQ @ESPERADEZENA	
-208 : R1 & STA  & '1' & FE;	-- STA R1, @510	
-209 : R1 & LDA  & '1' & 40;	-- LDA R1, @320	
-210 : R1 & GT  & '0' & 11;	-- GT R1, @17	
-211 : R0 & JGT  & '0' & D5;	-- JGT @VALORATUALIZADO4	
-212 : R0 & JMP  & '0' & D7;	-- JMP @IGNORA4
-213 : R0 & NOP  & '0' & 00;	-- NOP
-214 : R1 & LDI  & '0' & 05;	-- LDI R1, $5
-215 : R0 & NOP  & '0' & 00;	-- NOP
-216 : R1 & STA  & '0' & 01;	-- STA R1, @1	
-217 : R0 & NOP  & '0' & 00;	-- NOP
-218 : R1 & LDI  & '0' & 10;	-- LDI R1, $16	
-219 : R1 & STA  & '1' & 00;	-- STA R1, @256	
-220 : R1 & LDA  & '1' & 40;	-- LDA R1, @320	
-221 : R1 & GT  & '0' & 10;	-- GT R1, @16	
-222 : R0 & JGT  & '0' & E0;	-- JGT @VALORATUALIZADO5	
-223 : R0 & JMP  & '0' & E2;	-- JMP @IGNORA5
-224 : R0 & NOP  & '0' & 00;	-- NOP
-225 : R1 & LDI  & '0' & 09;	-- LDI R1, $9
+204 : R1 & LDI  & '0' & 05;	-- LDI R1, $5
+205 : R0 & NOP  & '0' & 00;	-- NOP
+206 : R1 & STA  & '0' & 01;	-- STA R1, @1	
+207 : R0 & NOP  & '0' & 00;	-- NOP
+208 : R1 & LDI  & '0' & 10;	-- LDI R1, $16	
+209 : R1 & STA  & '1' & 00;	-- STA R1, @256	
+210 : R1 & LDA  & '1' & 40;	-- LDA R1, @320	
+211 : R1 & GT  & '0' & 10;	-- GT R1, @16	
+212 : R0 & JGT  & '0' & D6;	-- JGT @VALORATUALIZADO5	
+213 : R0 & JMP  & '0' & D8;	-- JMP @IGNORA5
+214 : R0 & NOP  & '0' & 00;	-- NOP
+215 : R1 & LDI  & '0' & 09;	-- LDI R1, $9
+216 : R0 & NOP  & '0' & 00;	-- NOP
+217 : R1 & STA  & '1' & 22;	-- STA R1, @290	
+218 : R1 & LDA  & '1' & 61;	-- LDA R1, @353	
+219 : R1 & CEQ  & '0' & 06;	-- CEQ R1, @6	
+220 : R0 & JEQ  & '0' & CF;	-- JEQ @ESPERACENTENA	
+221 : R1 & STA  & '1' & FE;	-- STA R1, @510	
+222 : R1 & LDA  & '1' & 40;	-- LDA R1, @320	
+223 : R1 & GT  & '0' & 10;	-- GT R1, @16	
+224 : R0 & JGT  & '0' & E2;	-- JGT @VALORATUALIZADO6	
+225 : R0 & JMP  & '0' & E4;	-- JMP @IGNORA6
 226 : R0 & NOP  & '0' & 00;	-- NOP
-227 : R1 & STA  & '1' & 22;	-- STA R1, @290	
-228 : R1 & LDA  & '1' & 61;	-- LDA R1, @353	
-229 : R1 & CEQ  & '0' & 06;	-- CEQ R1, @6	
-230 : R0 & JEQ  & '0' & D9;	-- JEQ @ESPERACENTENA	
-231 : R1 & STA  & '1' & FE;	-- STA R1, @510	
-232 : R1 & LDA  & '1' & 40;	-- LDA R1, @320	
-233 : R1 & GT  & '0' & 10;	-- GT R1, @16	
-234 : R0 & JGT  & '0' & EC;	-- JGT @VALORATUALIZADO6	
-235 : R0 & JMP  & '0' & EE;	-- JMP @IGNORA6
-236 : R0 & NOP  & '0' & 00;	-- NOP
-237 : R1 & LDI  & '0' & 09;	-- LDI R1, $9
-238 : R0 & NOP  & '0' & 00;	-- NOP
-239 : R1 & STA  & '0' & 02;	-- STA R1, @2	
-240 : R0 & NOP  & '0' & 00;	-- NOP
-241 : R1 & LDI  & '0' & 20;	-- LDI R1, $32	
-242 : R1 & STA  & '1' & 00;	-- STA R1, @256	
-243 : R1 & LDA  & '1' & 40;	-- LDA R1, @320	
-244 : R1 & GT  & '0' & 11;	-- GT R1, @17	
-245 : R0 & JGT  & '0' & F7;	-- JGT @VALORATUALIZADO7	
-246 : R0 & JMP  & '0' & F9;	-- JMP @IGNORA7
-247 : R0 & NOP  & '0' & 00;	-- NOP
-248 : R1 & LDI  & '0' & 05;	-- LDI R1, $5
+227 : R1 & LDI  & '0' & 09;	-- LDI R1, $9
+228 : R0 & NOP  & '0' & 00;	-- NOP
+229 : R1 & STA  & '0' & 02;	-- STA R1, @2	
+230 : R0 & NOP  & '0' & 00;	-- NOP
+231 : R1 & LDI  & '0' & 20;	-- LDI R1, $32	
+232 : R1 & STA  & '1' & 00;	-- STA R1, @256	
+233 : R1 & LDA  & '1' & 40;	-- LDA R1, @320	
+234 : R1 & GT  & '0' & 11;	-- GT R1, @17	
+235 : R0 & JGT  & '0' & ED;	-- JGT @VALORATUALIZADO7	
+236 : R0 & JMP  & '0' & EF;	-- JMP @IGNORA7
+237 : R0 & NOP  & '0' & 00;	-- NOP
+238 : R1 & LDI  & '0' & 05;	-- LDI R1, $5
+239 : R0 & NOP  & '0' & 00;	-- NOP
+240 : R1 & STA  & '1' & 23;	-- STA R1, @291	
+241 : R1 & LDA  & '1' & 61;	-- LDA R1, @353	
+242 : R1 & CEQ  & '0' & 06;	-- CEQ R1, @6	
+243 : R0 & JEQ  & '0' & E6;	-- JEQ @ESPERAUNIDADEMILHAR	
+244 : R1 & STA  & '1' & FE;	-- STA R1, @510	
+245 : R1 & LDA  & '1' & 40;	-- LDA R1, @320	
+246 : R1 & GT  & '0' & 11;	-- GT R1, @17	
+247 : R0 & JGT  & '0' & F9;	-- JGT @VALORATUALIZADO8	
+248 : R0 & JMP  & '0' & FB;	-- JMP @IGNORA8
 249 : R0 & NOP  & '0' & 00;	-- NOP
-250 : R1 & STA  & '1' & 23;	-- STA R1, @291	
-251 : R1 & LDA  & '1' & 61;	-- LDA R1, @353	
-252 : R1 & CEQ  & '0' & 06;	-- CEQ R1, @6	
-253 : R0 & JEQ  & '0' & F0;	-- JEQ @ESPERAUNIDADEMILHAR	
-254 : R1 & STA  & '1' & FE;	-- STA R1, @510	
-255 : R1 & LDA  & '1' & 40;	-- LDA R1, @320	
-256 : R1 & GT  & '0' & 11;	-- GT R1, @17	
-257 : R0 & JGT  & '1' & 03;	-- JGT @VALORATUALIZADO8	
-258 : R0 & JMP  & '1' & 05;	-- JMP @IGNORA8
-259 : R0 & NOP  & '0' & 00;	-- NOP
-260 : R1 & LDI  & '0' & 05;	-- LDI R1, $5
-261 : R0 & NOP  & '0' & 00;	-- NOP
-262 : R1 & STA  & '0' & 03;	-- STA R1, @3	
+250 : R1 & LDI  & '0' & 05;	-- LDI R1, $5
+251 : R0 & NOP  & '0' & 00;	-- NOP
+252 : R1 & STA  & '0' & 03;	-- STA R1, @3	
+253 : R0 & NOP  & '0' & 00;	-- NOP
+254 : R1 & LDA  & '0' & 05;	-- LDA R1, @5	
+255 : R1 & GT  & '0' & 07;	-- GT R1, @7	
+256 : R0 & JGT  & '1' & 18;	-- JGT @AJUSTADEZENAMILHAR
+257 : R1 & LDI  & '0' & 80;	-- LDI R1, $128	
+258 : R1 & STA  & '1' & 00;	-- STA R1, @256	
+259 : R1 & LDA  & '1' & 40;	-- LDA R1, @320	
+260 : R1 & GT  & '0' & 10;	-- GT R1, @16	
+261 : R0 & JGT  & '1' & 07;	-- JGT @VALORATUALIZADO9	
+262 : R0 & JMP  & '1' & 09;	-- JMP @IGNORA9
 263 : R0 & NOP  & '0' & 00;	-- NOP
-264 : R1 & LDI  & '0' & 80;	-- LDI R1, $128	
-265 : R1 & STA  & '1' & 00;	-- STA R1, @256	
-266 : R1 & LDA  & '1' & 40;	-- LDA R1, @320	
-267 : R1 & GT  & '0' & 10;	-- GT R1, @16	
-268 : R0 & JGT  & '1' & 0E;	-- JGT @VALORATUALIZADO9	
-269 : R0 & JMP  & '1' & 10;	-- JMP @IGNORA9
-270 : R0 & NOP  & '0' & 00;	-- NOP
-271 : R1 & LDI  & '0' & 09;	-- LDI R1, $9
-272 : R0 & NOP  & '0' & 00;	-- NOP
-273 : R1 & STA  & '1' & 24;	-- STA R1, @292	
-274 : R1 & LDA  & '1' & 61;	-- LDA R1, @353	
-275 : R1 & CEQ  & '0' & 06;	-- CEQ R1, @6	
-276 : R0 & JEQ  & '1' & 07;	-- JEQ @ESPERADEZENAMILHAR	
-277 : R1 & STA  & '1' & FE;	-- STA R1, @510	
-278 : R1 & LDA  & '1' & 40;	-- LDA R1, @320	
-279 : R1 & GT  & '0' & 10;	-- GT R1, @16	
-280 : R0 & JGT  & '1' & 1A;	-- JGT @VALORATUALIZADO10	
-281 : R0 & JMP  & '1' & 1C;	-- JMP @IGNORA10
-282 : R0 & NOP  & '0' & 00;	-- NOP
-283 : R1 & LDI  & '0' & 09;	-- LDI R1, $9
-284 : R0 & NOP  & '0' & 00;	-- NOP
-285 : R1 & STA  & '0' & 04;	-- STA R1, @4	
-286 : R0 & JMP  & '1' & 36;	-- JMP @ESPERACENTENAMILHAR
+264 : R1 & LDI  & '0' & 09;	-- LDI R1, $9
+265 : R0 & NOP  & '0' & 00;	-- NOP
+266 : R1 & STA  & '1' & 24;	-- STA R1, @292	
+267 : R1 & LDA  & '1' & 61;	-- LDA R1, @353	
+268 : R1 & CEQ  & '0' & 06;	-- CEQ R1, @6	
+269 : R0 & JEQ  & '0' & FD;	-- JEQ @ESPERADEZENAMILHAR	
+270 : R1 & STA  & '1' & FE;	-- STA R1, @510	
+271 : R1 & LDA  & '1' & 40;	-- LDA R1, @320	
+272 : R1 & GT  & '0' & 10;	-- GT R1, @16	
+273 : R0 & JGT  & '1' & 13;	-- JGT @VALORATUALIZADO10	
+274 : R0 & JMP  & '1' & 15;	-- JMP @IGNORA10
+275 : R0 & NOP  & '0' & 00;	-- NOP
+276 : R1 & LDI  & '0' & 09;	-- LDI R1, $9
+277 : R0 & NOP  & '0' & 00;	-- NOP
+278 : R1 & STA  & '0' & 04;	-- STA R1, @4	
+279 : R0 & JMP  & '1' & 2F;	-- JMP @ESPERACENTENAMILHAR
+280 : R0 & NOP  & '0' & 00;	-- NOP
+281 : R1 & LDI  & '0' & 80;	-- LDI R1, $128	
+282 : R1 & STA  & '1' & 00;	-- STA R1, @256	
+283 : R1 & LDA  & '1' & 40;	-- LDA R1, @320	
+284 : R1 & GT  & '0' & 12;	-- GT R1, @18	
+285 : R0 & JGT  & '1' & 1F;	-- JGT @VALORATUALIZADO13	
+286 : R0 & JMP  & '1' & 59;	-- JMP @IGNORA13
 287 : R0 & NOP  & '0' & 00;	-- NOP
-288 : R1 & LDI  & '0' & 80;	-- LDI R1, $128	
-289 : R1 & STA  & '1' & 00;	-- STA R1, @256	
-290 : R1 & LDA  & '1' & 40;	-- LDA R1, @320	
-291 : R1 & GT  & '0' & 12;	-- GT R1, @18	
-292 : R0 & JGT  & '1' & 26;	-- JGT @VALORATUALIZADO13	
-293 : R0 & JMP  & '1' & 28;	-- JMP @IGNORA13
-294 : R0 & NOP  & '0' & 00;	-- NOP
-295 : R1 & LDI  & '0' & 03;	-- LDI R1, $3
-296 : R0 & NOP  & '0' & 00;	-- NOP
-297 : R1 & STA  & '1' & 24;	-- STA R1, @292	
-298 : R1 & LDA  & '1' & 61;	-- LDA R1, @353	
-299 : R1 & CEQ  & '0' & 06;	-- CEQ R1, @6	
-300 : R0 & JEQ  & '1' & 1F;	-- JEQ @VOLTADEZENAMILHAR	
-301 : R1 & STA  & '1' & FE;	-- STA R1, @510	
-302 : R1 & LDA  & '1' & 40;	-- LDA R1, @320	
-303 : R1 & GT  & '0' & 12;	-- GT R1, @18	
-304 : R0 & JGT  & '1' & 32;	-- JGT @VALORATUALIZADO14	
-305 : R0 & JMP  & '1' & 34;	-- JMP @IGNORA14
-306 : R0 & NOP  & '0' & 00;	-- NOP
-307 : R1 & LDI  & '0' & 03;	-- LDI R1, $3
-308 : R0 & NOP  & '0' & 00;	-- NOP
-309 : R1 & STA  & '0' & 04;	-- STA R1, @4	
-310 : R0 & NOP  & '0' & 00;	-- NOP
-311 : R1 & LDA  & '0' & 06;	-- LDA R1, @6	
-312 : R1 & STA  & '1' & 00;	-- STA R1, @256	
-313 : R1 & LDI  & '0' & 01;	-- LDI R1, $1	
-314 : R1 & STA  & '1' & 01;	-- STA R1, @257	
-315 : R1 & LDA  & '1' & 40;	-- LDA R1, @320	
-316 : R1 & GT  & '0' & 13;	-- GT R1, @19	
-317 : R0 & JGT  & '1' & 3F;	-- JGT @VALORATUALIZADO11	
-318 : R0 & JMP  & '1' & 41;	-- JMP @IGNORA11
-319 : R0 & NOP  & '0' & 00;	-- NOP
-320 : R1 & LDI  & '0' & 02;	-- LDI R1, $2
-321 : R0 & NOP  & '0' & 00;	-- NOP
-322 : R1 & STA  & '1' & 25;	-- STA R1, @293	
-323 : R1 & LDA  & '1' & 61;	-- LDA R1, @353	
-324 : R1 & CEQ  & '0' & 06;	-- CEQ R1, @6	
-325 : R0 & JEQ  & '1' & 36;	-- JEQ @ESPERACENTENAMILHAR	
-326 : R1 & STA  & '1' & FE;	-- STA R1, @510	
-327 : R1 & LDA  & '1' & 40;	-- LDA R1, @320	
-328 : R1 & GT  & '0' & 13;	-- GT R1, @19	
-329 : R0 & JGT  & '1' & 4B;	-- JGT @VALORATUALIZADO12	
-330 : R0 & JMP  & '1' & 4D;	-- JMP @IGNORA12
-331 : R0 & NOP  & '0' & 00;	-- NOP
-332 : R1 & LDI  & '0' & 02;	-- LDI R1, $2
-333 : R0 & NOP  & '0' & 00;	-- NOP
-334 : R1 & STA  & '0' & 05;	-- STA R1, @5	
-335 : R1 & LDA  & '0' & 05;	-- LDA R1, @5
-336 : R1 & SOMA  & '0' & 04;	-- SOMA R1, @4
-337 : R1 & GT  & '0' & 14;	-- GT R1, @20
-338 : R0 & JGT  & '1' & 1F;	-- JGT @VOLTADEZENAMILHAR
-339 : R1 & LDI  & '0' & 00;	-- LDI R1, $0
-340 : R1 & STA  & '1' & 01;	-- STA R1, @257
-341 : R0 & RET  & '0' & 00;	-- RET	
+288 : R1 & LDI  & '0' & 03;	-- LDI R1, $3
+289 : R0 & NOP  & '0' & 00;	-- NOP
+290 : R1 & STA  & '1' & 24;	-- STA R1, @292	
+291 : R1 & LDA  & '1' & 61;	-- LDA R1, @353	
+292 : R1 & CEQ  & '0' & 06;	-- CEQ R1, @6	
+293 : R0 & JEQ  & '1' & 18;	-- JEQ @AJUSTADEZENAMILHAR	
+294 : R1 & STA  & '1' & FE;	-- STA R1, @510	
+295 : R1 & LDA  & '1' & 40;	-- LDA R1, @320	
+296 : R1 & GT  & '0' & 12;	-- GT R1, @18	
+297 : R0 & JGT  & '1' & 2B;	-- JGT @VALORATUALIZADO14	
+298 : R0 & JMP  & '1' & 65;	-- JMP @IGNORA14
+299 : R0 & NOP  & '0' & 00;	-- NOP
+300 : R1 & LDI  & '0' & 03;	-- LDI R1, $3
+301 : R0 & NOP  & '0' & 00;	-- NOP
+302 : R1 & STA  & '0' & 04;	-- STA R1, @4	
+303 : R0 & NOP  & '0' & 00;	-- NOP
+304 : R1 & LDA  & '0' & 04;	-- LDA R1, @4	
+305 : R1 & GT  & '0' & 12;	-- GT R1, @18	
+306 : R0 & JGT  & '1' & 4E;	-- JGT @HORACERTACENTENAMILHAR
+307 : R1 & LDA  & '0' & 06;	-- LDA R1, @6	
+308 : R1 & STA  & '1' & 00;	-- STA R1, @256	
+309 : R1 & LDI  & '0' & 01;	-- LDI R1, $1	
+310 : R1 & STA  & '1' & 01;	-- STA R1, @257	
+311 : R1 & LDA  & '1' & 40;	-- LDA R1, @320	
+312 : R1 & GT  & '0' & 13;	-- GT R1, @19	
+313 : R0 & JGT  & '1' & 3B;	-- JGT @VALORATUALIZADO11	
+314 : R0 & JMP  & '1' & 3D;	-- JMP @IGNORA11
+315 : R0 & NOP  & '0' & 00;	-- NOP
+316 : R1 & LDI  & '0' & 02;	-- LDI R1, $2
+317 : R0 & NOP  & '0' & 00;	-- NOP
+318 : R1 & STA  & '1' & 25;	-- STA R1, @293	
+319 : R1 & LDA  & '1' & 61;	-- LDA R1, @353	
+320 : R1 & CEQ  & '0' & 06;	-- CEQ R1, @6	
+321 : R0 & JEQ  & '1' & 2F;	-- JEQ @ESPERACENTENAMILHAR	
+322 : R1 & STA  & '1' & FE;	-- STA R1, @510	
+323 : R1 & LDA  & '1' & 40;	-- LDA R1, @320	
+324 : R1 & GT  & '0' & 13;	-- GT R1, @19	
+325 : R0 & JGT  & '1' & 47;	-- JGT @VALORATUALIZADO12	
+326 : R0 & JMP  & '1' & 49;	-- JMP @IGNORA12
+327 : R0 & NOP  & '0' & 00;	-- NOP
+328 : R1 & LDI  & '0' & 02;	-- LDI R1, $2
+329 : R0 & NOP  & '0' & 00;	-- NOP
+330 : R1 & STA  & '0' & 05;	-- STA R1, @5	
+331 : R1 & LDI  & '0' & 00;	-- LDI R1, $0
+332 : R1 & STA  & '1' & 01;	-- STA R1, @257
+333 : R0 & JMP  & '1' & 69;	-- JMP @FINALSUB
+334 : R0 & NOP  & '0' & 00;	-- NOP
+335 : R1 & LDA  & '0' & 06;	-- LDA R1, @6	
+336 : R1 & STA  & '1' & 00;	-- STA R1, @256	
+337 : R1 & LDI  & '0' & 01;	-- LDI R1, $1	
+338 : R1 & STA  & '1' & 01;	-- STA R1, @257	
+339 : R1 & LDA  & '1' & 40;	-- LDA R1, @320	
+340 : R1 & GT  & '0' & 07;	-- GT R1, @7	
+341 : R0 & JGT  & '1' & 57;	-- JGT @VALORATUALIZADO15	
+342 : R0 & JMP  & '1' & 59;	-- JMP @IGNORA13
+343 : R0 & NOP  & '0' & 00;	-- NOP
+344 : R1 & LDI  & '0' & 01;	-- LDI R1, $1
+345 : R0 & NOP  & '0' & 00;	-- NOP
+346 : R1 & STA  & '1' & 25;	-- STA R1, @293	
+347 : R1 & LDA  & '1' & 61;	-- LDA R1, @353	
+348 : R1 & CEQ  & '0' & 06;	-- CEQ R1, @6	
+349 : R0 & JEQ  & '1' & 2F;	-- JEQ @ESPERACENTENAMILHAR	
+350 : R1 & STA  & '1' & FE;	-- STA R1, @510	
+351 : R1 & LDA  & '1' & 40;	-- LDA R1, @320	
+352 : R1 & GT  & '0' & 07;	-- GT R1, @7	
+353 : R0 & JGT  & '1' & 63;	-- JGT @VALORATUALIZADO16	
+354 : R0 & JMP  & '1' & 65;	-- JMP @IGNORA14
+355 : R0 & NOP  & '0' & 00;	-- NOP
+356 : R1 & LDI  & '0' & 01;	-- LDI R1, $1
+357 : R0 & NOP  & '0' & 00;	-- NOP
+358 : R1 & STA  & '0' & 05;	-- STA R1, @5	
+359 : R1 & LDI  & '0' & 00;	-- LDI R1, $0
+360 : R1 & STA  & '1' & 01;	-- STA R1, @257
+361 : R0 & NOP  & '0' & 00;	-- NOP
+362 : R0 & RET  & '0' & 00;	-- RET	
+363 : R0 & NOP  & '0' & 00;	-- NOP
+364 : R0 & RET  & '0' & 00;	-- RET
 END;
