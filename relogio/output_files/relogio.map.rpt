@@ -1,5 +1,5 @@
 Analysis & Synthesis report for relogio
-Sun May  7 16:56:09 2023
+Mon May  8 11:42:24 2023
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -97,7 +97,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sun May  7 16:56:09 2023       ;
+; Analysis & Synthesis Status     ; Successful - Mon May  8 11:42:24 2023       ;
 ; Quartus Prime Version           ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                   ; relogio                                     ;
 ; Top-level Entity Name           ; contador                                    ;
@@ -256,14 +256,14 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+----------------+
 ; Resource                                    ; Usage          ;
 +---------------------------------------------+----------------+
-; Estimate of Logic utilization (ALMs needed) ; 566            ;
+; Estimate of Logic utilization (ALMs needed) ; 585            ;
 ;                                             ;                ;
-; Combinational ALUT usage for logic          ; 668            ;
-;     -- 7 input functions                    ; 7              ;
-;     -- 6 input functions                    ; 371            ;
-;     -- 5 input functions                    ; 50             ;
-;     -- 4 input functions                    ; 93             ;
-;     -- <=3 input functions                  ; 147            ;
+; Combinational ALUT usage for logic          ; 674            ;
+;     -- 7 input functions                    ; 25             ;
+;     -- 6 input functions                    ; 376            ;
+;     -- 5 input functions                    ; 48             ;
+;     -- 4 input functions                    ; 84             ;
+;     -- <=3 input functions                  ; 141            ;
 ;                                             ;                ;
 ; Dedicated logic registers                   ; 647            ;
 ;                                             ;                ;
@@ -273,8 +273,8 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
 ; Maximum fan-out                             ; 642            ;
-; Total fan-out                               ; 5318           ;
-; Average fan-out                             ; 3.67           ;
+; Total fan-out                               ; 5409           ;
+; Average fan-out                             ; 3.71           ;
 +---------------------------------------------+----------------+
 
 
@@ -283,15 +283,15 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------+-----------------------------+--------------+
 ; Compilation Hierarchy Node                              ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                               ; Entity Name                 ; Library Name ;
 +---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------+-----------------------------+--------------+
-; |contador                                               ; 668 (46)            ; 647 (0)                   ; 0                 ; 0          ; 68   ; 0            ; |contador                                                                         ; contador                    ; work         ;
+; |contador                                               ; 674 (47)            ; 647 (0)                   ; 0                 ; 0          ; 68   ; 0            ; |contador                                                                         ; contador                    ; work         ;
 ;    |CPU:CPU|                                            ; 85 (0)              ; 52 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |contador|CPU:CPU                                                                 ; CPU                         ; work         ;
-;       |ULASomaSub:ULA1|                                 ; 33 (33)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |contador|CPU:CPU|ULASomaSub:ULA1                                                 ; ULASomaSub                  ; work         ;
+;       |ULASomaSub:ULA1|                                 ; 35 (35)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |contador|CPU:CPU|ULASomaSub:ULA1                                                 ; ULASomaSub                  ; work         ;
 ;       |bancoRegistradoresArqRegMem:Banco_Registradores| ; 12 (12)             ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |contador|CPU:CPU|bancoRegistradoresArqRegMem:Banco_Registradores                 ; bancoRegistradoresArqRegMem ; work         ;
 ;       |decoderInstru:Decodificador|                     ; 10 (10)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |contador|CPU:CPU|decoderInstru:Decodificador                                     ; decoderInstru               ; work         ;
 ;       |flipflopGenerico:HAB_FLAG|                       ; 3 (3)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |contador|CPU:CPU|flipflopGenerico:HAB_FLAG                                       ; flipflopGenerico            ; work         ;
 ;       |flipflopGenerico:HAB_JGT|                        ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |contador|CPU:CPU|flipflopGenerico:HAB_JGT                                        ; flipflopGenerico            ; work         ;
 ;       |logicaDesvio:Logica_Desvio|                      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |contador|CPU:CPU|logicaDesvio:Logica_Desvio                                      ; logicaDesvio                ; work         ;
-;       |muxGenerico2x1:MUX1|                             ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |contador|CPU:CPU|muxGenerico2x1:MUX1                                             ; muxGenerico2x1              ; work         ;
+;       |muxGenerico2x1:MUX1|                             ; 5 (5)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |contador|CPU:CPU|muxGenerico2x1:MUX1                                             ; muxGenerico2x1              ; work         ;
 ;       |muxGenerico4x1:MUX2|                             ; 9 (9)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |contador|CPU:CPU|muxGenerico4x1:MUX2                                             ; muxGenerico4x1              ; work         ;
 ;       |registradorGenerico:PC|                          ; 0 (0)               ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |contador|CPU:CPU|registradorGenerico:PC                                          ; registradorGenerico         ; work         ;
 ;       |registradorGenerico:REG_Retorno|                 ; 0 (0)               ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |contador|CPU:CPU|registradorGenerico:REG_Retorno                                 ; registradorGenerico         ; work         ;
@@ -318,7 +318,7 @@ https://fpgasoftware.intel.com/eula.
 ;    |flipflopGenerico:FF_KEY1|                           ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |contador|flipflopGenerico:FF_KEY1                                                ; flipflopGenerico            ; work         ;
 ;    |flipflopGenerico:FF_KEY2|                           ; 0 (0)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |contador|flipflopGenerico:FF_KEY2                                                ; flipflopGenerico            ; work         ;
 ;    |memoriaRAM:RAM1|                                    ; 298 (298)           ; 512 (512)                 ; 0                 ; 0          ; 0    ; 0            ; |contador|memoriaRAM:RAM1                                                         ; memoriaRAM                  ; work         ;
-;    |memoriaROM:ROM1|                                    ; 136 (136)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |contador|memoriaROM:ROM1                                                         ; memoriaROM                  ; work         ;
+;    |memoriaROM:ROM1|                                    ; 141 (141)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |contador|memoriaROM:ROM1                                                         ; memoriaROM                  ; work         ;
 ;    |registradorGenerico:Reg1|                           ; 0 (0)               ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |contador|registradorGenerico:Reg1                                                ; registradorGenerico         ; work         ;
 ;    |registradorGenerico:Reg2|                           ; 0 (0)               ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |contador|registradorGenerico:Reg2                                                ; registradorGenerico         ; work         ;
 ;    |registradorGenerico:Reg3|                           ; 0 (0)               ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |contador|registradorGenerico:Reg3                                                ; registradorGenerico         ; work         ;
@@ -890,25 +890,25 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     ENA SLD           ; 32                          ;
 ;     SCLR              ; 39                          ;
 ;     plain             ; 18                          ;
-; arriav_lcell_comb     ; 668                         ;
+; arriav_lcell_comb     ; 674                         ;
 ;     arith             ; 65                          ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 48                          ;
 ;         4 data inputs ; 8                           ;
 ;         5 data inputs ; 8                           ;
-;     extend            ; 7                           ;
-;         7 data inputs ; 7                           ;
-;     normal            ; 596                         ;
+;     extend            ; 25                          ;
+;         7 data inputs ; 25                          ;
+;     normal            ; 584                         ;
 ;         1 data inputs ; 3                           ;
-;         2 data inputs ; 77                          ;
-;         3 data inputs ; 18                          ;
-;         4 data inputs ; 85                          ;
-;         5 data inputs ; 42                          ;
-;         6 data inputs ; 371                         ;
+;         2 data inputs ; 78                          ;
+;         3 data inputs ; 11                          ;
+;         4 data inputs ; 76                          ;
+;         5 data inputs ; 40                          ;
+;         6 data inputs ; 376                         ;
 ; boundary_port         ; 68                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 10.30                       ;
-; Average LUT depth     ; 6.35                        ;
+; Average LUT depth     ; 6.53                        ;
 +-----------------------+-----------------------------+
 
 
@@ -927,7 +927,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Sun May  7 16:55:55 2023
+    Info: Processing started: Mon May  8 11:42:10 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off relogio -c relogio
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file ULASomaSub.vhd
@@ -1034,13 +1034,13 @@ Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 1 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "KEY[0]" File: /home/jvpazotti/Desktop/Github_Descomp/Descomp/relogio/contador.vhd Line: 12
-Info (21057): Implemented 1326 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 1332 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 16 input pins
     Info (21059): Implemented 52 output pins
-    Info (21061): Implemented 1258 logic cells
+    Info (21061): Implemented 1264 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 14 warnings
-    Info: Peak virtual memory: 483 megabytes
-    Info: Processing ended: Sun May  7 16:56:09 2023
+    Info: Peak virtual memory: 481 megabytes
+    Info: Processing ended: Mon May  8 11:42:24 2023
     Info: Elapsed time: 00:00:14
     Info: Total CPU time (on all processors): 00:00:30
 

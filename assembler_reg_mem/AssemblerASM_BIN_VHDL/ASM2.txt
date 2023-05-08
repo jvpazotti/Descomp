@@ -45,13 +45,17 @@ LDI R0, $4
 STA R0, @21#Constante de limite de valor (4)
 LDI R0, $0
 STA R0, @22#Flag(0)
+STA R0, @30# Armazena valor para operacao
+STA R0, @31
+STA R0, @32
+STA R0, @33
+STA R0, @34
+STA R0, @35
 INICIOLOOP:#Loop principal
 LDA R2, @352# Le o valor de KEY0
 CEQ R2, @6# Compara o valor de KEY0 com 0
 JEQ @PULA1# Se for igual a 0, nao incrementa e atualiza os displays
-INCREMENTA:
-STA R2, @511#Limpa a leitura de KEY1
-UNIDADE:
+STA R2, @511#Limpa a leitura de KEY0
 LDA R2, @0#Carrega o valor da unidade no acumulador
 SOMA R2, @7#Incrementa 1 na unidade
 CEQ R2, @8#Compara unidade com 10
@@ -65,7 +69,36 @@ CONFEREKEY2:
 LDA R2, @354# Le o valor de KEY2
 CEQ R2, @6# Compara o valor de KEY2 com 0
 JEQ @INICIOLOOP# Se for igual a 0, fica no aguardo para quando for 1
-JSR @ALARME# Se for diferente de 0, entra na sub rotina de configuracao de alarme
+LDI R2, $1# Se for diferente de 0, armazena 1 no acumulador
+STA R2, @22#Armazena 1 na flag
+LDI R1, $64
+STA R1, @256
+LDA R2, @0
+STA R2, @30
+LDA R2, @1
+STA R2, @31
+LDA R2, @2
+STA R2, @32
+LDA R2, @3
+STA R2, @33
+LDA R2, @4
+STA R2, @34
+LDA R2, @5
+STA R2, @35
+RETORNO:
+LDA R2, @30
+STA R2, @0
+LDA R2, @31
+STA R2, @1
+LDA R2, @32
+STA R2, @2
+LDA R2, @33
+STA R2, @3
+LDA R2, @34
+STA R2, @4
+LDA R2, @35
+STA R2, @5
+JSR @CHECALIMITE# Verifica se os valores estao dentro dos limites
 JMP @INICIOLOOP#Retorna para o LOOP principal
 UNIDADEPASSOU:
 LDA R2, @6#Carrega 0 no acumulador
@@ -124,7 +157,7 @@ STA R2, @5#Se for diferente de 3, armazena o valor da centena de milhar
 JMP @INICIOLOOP#Retorna para o LOOP principal
 VIROUAHORA:
 JMP @RESTART#Retorna para o LOOP principal
-ATUALIZA:#Atualiza os valores dos HEX
+PULA1:
 LDA R3, @0#Le o valor das unidades
 STA R3, @288#Armazena o valor das unidades no HEX0
 LDA R3, @1#Le o valor das dezenas
@@ -137,9 +170,6 @@ LDA R3, @4#Le o valor das dezenas de milhar
 STA R3, @292#Armazena o valor das dezenas de milhar no HEX4
 LDA R3, @5#Le o valor das centenas de milhar
 STA R3, @293#Armazena o valor das centenas de milhar no HEX5
-RET#Retorna para o LOOP principal
-PULA1:
-JSR @ATUALIZA# Atualiza os displays
 JMP @INICIOLOOP# Volta para o loop principal
 CONFIGHORA:#Rotina de configuracao de hora
 LDA R0, @6#Carrega 0 no acumulador
@@ -155,9 +185,6 @@ STA R0, @290# Zera o HEX3
 STA R0, @291# Zera o HEX4
 STA R0, @292# Zera o HEX5
 STA R0, @293# Zera o HEX6
-STA R0, @256# Zera os LEDS(7~0)
-STA R0, @258# Zera os LED(9)
-STA R0, @257# Zera os LED(8) # Zera os displays depois de configurar os limites
 LDI R1, $1# Carrega o valor 1
 STA R1, @256# Bota no endereco dos LEDS(7-0)
 STA R1, @510#Limpa a leitura de KEY1
@@ -182,6 +209,7 @@ VALORATUALIZADO2:
 LDI R1, $9
 IGNORA2:
 STA R1, @0#Armazena o valor das chaves no limite das unidades
+JMP @ESPERADEZENA
 ESPERADEZENA:
 LDI R1, $4#Carrega o valor 4
 STA R1, @256# Bota o valor nos LEDS
@@ -360,6 +388,59 @@ STA R1, @5#Armazena o valor das chaves no limite das centenas de milhar
 LDI R1, $0
 STA R1, @257
 FINALSUB:
+LDA R1, @22
+CEQ R1, @7
+JEQ @TESTE
 RET#Retorna para o LOOP principal
-ALARME:
-RET
+CHECALIMITE:
+LDA R1, @0#Le o valor das unidades
+CEQ R1, @10#Compara com o valor limite das unidades
+JEQ @CHECADEZENA#Se for igual, checa se ocorre com as dezenas
+RET#Se for diferente, retorna para o LOOP principal
+CHECADEZENA:
+LDA R1, @1#Le o valor das dezenas
+CEQ R1, @11#Compara com o valor limite das dezenas
+JEQ @CHECACENTENA#Se for igual, checa se ocorre com as centenas
+RET#Se for diferente, retorna para o LOOP principal
+CHECACENTENA:
+LDA R1, @2#Le o valor das centenas
+CEQ R1, @12#Compara com o valor limite das centenas
+JEQ @CHECAUNIDADEMILHAR#Se for igual, checa se ocorre com as unidades de milhar
+RET#Se for diferente, retorna para o LOOP principal
+CHECAUNIDADEMILHAR:
+LDA R1, @3# Le o valor das unidades de milhar
+CEQ R1, @13# Compara com o valor limite das unidades de milhar 
+JEQ @CHECADEZENAMILHAR#Se for igual, checa se ocorre com as dezenas de milhar
+RET#Se for diferente, retorna para o LOOP principal
+CHECADEZENAMILHAR:
+LDA R1, @4# Le o valor das dezenas de milhar
+CEQ R1, @14# Compara com o valor limite das dezenas de milhar 
+JEQ @CHECACENTENAMILHAR#Se for igual, checa se ocorre com as centenas de milhar
+RET#Se for diferente, retorna para o LOOP principal
+CHECACENTENAMILHAR:
+LDA R1, @5# Le o valor das centenas de milhar
+CEQ R1, @15# Compara com o valor limite das centenas de milhar 
+JEQ @BATEUNOLIMITE#Se for igual, indica que o limite foi batido
+RET#Se for diferente, retorna para o LOOP principal
+BATEUNOLIMITE:
+LDI R1, $0
+STA R1, @256
+LDI R1, $1#Atribui o valor 1 no acumulador
+STA R1, @258#Ativa o LED de limite atingido 
+RET#Retorna pro LOOP principal
+TESTE:
+LDA R1, @0
+STA R1, @10
+LDA R1, @1
+STA R1, @11
+LDA R1, @2
+STA R1, @12
+LDA R1, @3
+STA R1, @13
+LDA R1, @4
+STA R1, @14
+LDA R1, @5
+STA R1, @15
+LDI R1, $0
+STA R1, @22
+JMP @RETORNO
