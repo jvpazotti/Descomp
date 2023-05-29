@@ -1,0 +1,22 @@
+Quartus Prime Archive log --	/home/jvpazotti/Desktop/Github_Descomp/Descomp/aula13/aula13.qarlog
+
+Archive:	/home/jvpazotti/Desktop/Github_Descomp/Descomp/aula13/aula13.qar
+Date:		Fri May 12 15:29:16 2023
+Quartus Prime		20.1.0 Build 711 06/05/2020 SJ Lite Edition
+
+	=========== Files Selected: ===========
+/home/jvpazotti/Desktop/Github_Descomp/Descomp/aula13/ROMMIPS.vhd
+/home/jvpazotti/Desktop/Github_Descomp/Descomp/aula13/ROMcontent.mif
+/home/jvpazotti/Desktop/Github_Descomp/Descomp/aula13/ULASomaSub.vhd
+/home/jvpazotti/Desktop/Github_Descomp/Descomp/aula13/Waveform.vwf
+/home/jvpazotti/Desktop/Github_Descomp/Descomp/aula13/aula13.qpf
+/home/jvpazotti/Desktop/Github_Descomp/Descomp/aula13/aula13.qsf
+/home/jvpazotti/Desktop/Github_Descomp/Descomp/aula13/aula13.vhd
+/home/jvpazotti/Desktop/Github_Descomp/Descomp/aula13/bancoReg.vhd
+/home/jvpazotti/Desktop/Github_Descomp/Descomp/aula13/registradorGenerico.vhd
+/home/jvpazotti/Desktop/Github_Descomp/Descomp/aula13/somaConstante.vhd
+/home/jvpazotti/intelFPGA_lite/20.1/quartus/linux64/assignment_defaults.qdf
+	======= Total: 11 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.

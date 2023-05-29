@@ -1,0 +1,34 @@
+Quartus Prime Archive log --	/home/jvpazotti/Desktop/Github_Descomp/Descomp/relogio/relogio.qarlog
+
+Archive:	/home/jvpazotti/Desktop/Github_Descomp/Descomp/relogio/relogio.qar
+Date:		Tue May  9 09:56:59 2023
+Quartus Prime		20.1.0 Build 711 06/05/2020 SJ Lite Edition
+
+	=========== Files Selected: ===========
+/home/jvpazotti/Desktop/Github_Descomp/Descomp/relogio/CPU.vhd
+/home/jvpazotti/Desktop/Github_Descomp/Descomp/relogio/ULASomaSub.vhd
+/home/jvpazotti/Desktop/Github_Descomp/Descomp/relogio/bancoRegistradoresArqRegMem.vhd
+/home/jvpazotti/Desktop/Github_Descomp/Descomp/relogio/buffer_3_state_8portas.vhd
+/home/jvpazotti/Desktop/Github_Descomp/Descomp/relogio/contador.vhd
+/home/jvpazotti/Desktop/Github_Descomp/Descomp/relogio/conversorHex7Seg.vhd
+/home/jvpazotti/Desktop/Github_Descomp/Descomp/relogio/decoder3x8.vhd
+/home/jvpazotti/Desktop/Github_Descomp/Descomp/relogio/decoderInstru.vhd
+/home/jvpazotti/Desktop/Github_Descomp/Descomp/relogio/divisorGenerico.vhd
+/home/jvpazotti/Desktop/Github_Descomp/Descomp/relogio/divisorGenerico_e_Interface.vhd
+/home/jvpazotti/Desktop/Github_Descomp/Descomp/relogio/edgeDetector.vhd
+/home/jvpazotti/Desktop/Github_Descomp/Descomp/relogio/flipflopGenerico.vhd
+/home/jvpazotti/Desktop/Github_Descomp/Descomp/relogio/logicaDesvio.vhd
+/home/jvpazotti/Desktop/Github_Descomp/Descomp/relogio/memoriaRAM.vhd
+/home/jvpazotti/Desktop/Github_Descomp/Descomp/relogio/memoriaROM.vhd
+/home/jvpazotti/Desktop/Github_Descomp/Descomp/relogio/muxGenerico2x1.vhd
+/home/jvpazotti/Desktop/Github_Descomp/Descomp/relogio/muxGenerico2x1_bit.vhd
+/home/jvpazotti/Desktop/Github_Descomp/Descomp/relogio/muxGenerico4x1.vhd
+/home/jvpazotti/Desktop/Github_Descomp/Descomp/relogio/registradorGenerico.vhd
+/home/jvpazotti/Desktop/Github_Descomp/Descomp/relogio/relogio.qpf
+/home/jvpazotti/Desktop/Github_Descomp/Descomp/relogio/relogio.qsf
+/home/jvpazotti/Desktop/Github_Descomp/Descomp/relogio/somaConstante.vhd
+/home/jvpazotti/intelFPGA_lite/20.1/quartus/linux64/assignment_defaults.qdf
+	======= Total: 23 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.

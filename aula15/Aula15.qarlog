@@ -1,0 +1,29 @@
+Quartus Prime Archive log --	/home/jvpazotti/Desktop/Github_Descomp/Descomp/aula15/Aula15.qarlog
+
+Archive:	/home/jvpazotti/Desktop/Github_Descomp/Descomp/aula15/Aula15.qar
+Date:		Fri May 19 19:27:59 2023
+Quartus Prime		20.1.0 Build 711 06/05/2020 SJ Lite Edition
+
+	=========== Files Selected: ===========
+/home/jvpazotti/Desktop/Github_Descomp/Descomp/aula15/Aula15.qpf
+/home/jvpazotti/Desktop/Github_Descomp/Descomp/aula15/Aula15.qsf
+/home/jvpazotti/Desktop/Github_Descomp/Descomp/aula15/RAMMIPS.vhd
+/home/jvpazotti/Desktop/Github_Descomp/Descomp/aula15/ROMMIPS.vhd
+/home/jvpazotti/Desktop/Github_Descomp/Descomp/aula15/ULASomaSub.vhd
+/home/jvpazotti/Desktop/Github_Descomp/Descomp/aula15/UnidadeControleULA.vhd
+/home/jvpazotti/Desktop/Github_Descomp/Descomp/aula15/Waveform.vwf
+/home/jvpazotti/Desktop/Github_Descomp/Descomp/aula15/Waveform2.vwf
+/home/jvpazotti/Desktop/Github_Descomp/Descomp/aula15/aula15.vhd
+/home/jvpazotti/Desktop/Github_Descomp/Descomp/aula15/bancoReg.vhd
+/home/jvpazotti/Desktop/Github_Descomp/Descomp/aula15/bancoRegistradores.vhd
+/home/jvpazotti/Desktop/Github_Descomp/Descomp/aula15/decoderInstru.vhd
+/home/jvpazotti/Desktop/Github_Descomp/Descomp/aula15/estendeSinalGenerico.vhd
+/home/jvpazotti/Desktop/Github_Descomp/Descomp/aula15/muxGenerico2x1.vhd
+/home/jvpazotti/Desktop/Github_Descomp/Descomp/aula15/registradorGenerico.vhd
+/home/jvpazotti/Desktop/Github_Descomp/Descomp/aula15/somaConstante.vhd
+/home/jvpazotti/Desktop/Github_Descomp/Descomp/aula15/somador.vhd
+/home/jvpazotti/intelFPGA_lite/20.1/quartus/linux64/assignment_defaults.qdf
+	======= Total: 18 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.

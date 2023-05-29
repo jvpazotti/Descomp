@@ -1,0 +1,21 @@
+Quartus Prime Archive log --	/home/jvpazotti/Desktop/Github_Descomp/Descomp/aula16/ULAMIPS.qarlog
+
+Archive:	/home/jvpazotti/Desktop/Github_Descomp/Descomp/aula16/ULAMIPS.qar
+Date:		Wed May 24 19:15:27 2023
+Quartus Prime		20.1.0 Build 711 06/05/2020 SJ Lite Edition
+
+	=========== Files Selected: ===========
+/home/jvpazotti/Desktop/Github_Descomp/Descomp/aula16/SomadorULA.vhd
+/home/jvpazotti/Desktop/Github_Descomp/Descomp/aula16/ULA1bit.vhd
+/home/jvpazotti/Desktop/Github_Descomp/Descomp/aula16/ULAMIPS.qpf
+/home/jvpazotti/Desktop/Github_Descomp/Descomp/aula16/ULAMIPS.qsf
+/home/jvpazotti/Desktop/Github_Descomp/Descomp/aula16/ULAMIPS.vhd
+/home/jvpazotti/Desktop/Github_Descomp/Descomp/aula16/ULA_bit_final.vhd
+/home/jvpazotti/Desktop/Github_Descomp/Descomp/aula16/Waveform.vwf
+/home/jvpazotti/Desktop/Github_Descomp/Descomp/aula16/muxGenerico2x1.vhd
+/home/jvpazotti/Desktop/Github_Descomp/Descomp/aula16/muxGenerico4x1.vhd
+/home/jvpazotti/intelFPGA_lite/20.1/quartus/linux64/assignment_defaults.qdf
+	======= Total: 10 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.
